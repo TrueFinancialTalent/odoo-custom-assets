@@ -33,6 +33,26 @@ body[data-url="/1000"] header.o_header_standard {
 #wrapwrap nav.o_header_disappears {
   display: none !important;
 }
+
+/* Additional #wrapwrap context overrides */
+#wrapwrap header.o_top_fixed_element,
+#wrapwrap nav.o_colored_level,
+#wrapwrap .o_colored_level.o_cc,
+#wrapwrap .o_header_disappears,
+#wrapwrap .o_header_standard,
+#wrapwrap .o_main_nav,
+#wrapwrap nav.o_main_nav,
+#wrapwrap div#o_main_nav,
+#wrapwrap header .o_header_sales_three_top,
+#wrapwrap header .o_main_nav {
+  display: none !important;
+  visibility: hidden !important;
+  height: 0 !important;
+  max-height: 0 !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
 </style>
 <!-- End Hide Odoo Main Navigation-->
 
