@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // 🔥 REMOVE ODOO NAV (stronger + earlier)
   const tryRemoveOdooNav = () => {
     const odooNavs = document.querySelectorAll(
-      'header.o_top_fixed_element, nav.o_colored_level, .o_main_navbar, #o_main_nav'
+      "header.o_top_fixed_element, nav.o_colored_level, .o_main_navbar, #o_main_nav"
     );
     odooNavs.forEach((nav) => nav.remove());
   };
