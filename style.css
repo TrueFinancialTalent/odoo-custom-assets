@@ -1,14 +1,23 @@
 <!-- Hide Odoo Main Navigation -->
 <style>
-/* FINAL: Hide Odoo default navs on ALL resolutions */
-.o_main_navbar,
-.o_top_fixed_element,
+/* FINAL FIX: Force-hide all Odoo nav headers regardless of page */
+header.o_top_fixed_element,
 .o_header_disappears,
 .o_header_standard,
-header.o_header_disappears,
-header.o_header_standard,
+.o_main_navbar,
+nav.o_main_nav,
+div#o_main_nav,
+header nav.o_colored_level,
+header .o_header_sales_three_top,
+header .o_main_nav,
 header.o_main_nav {
   display: none !important;
+  visibility: hidden !important;
+  height: 0 !important;
+  max-height: 0 !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  margin: 0 !important;
 }
 
 /* Hide Odoo's default navbar only on the test page */
