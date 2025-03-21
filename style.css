@@ -1,5 +1,16 @@
 <!-- Hide Odoo Main Navigation -->
 <style>
+/* FINAL: Hide Odoo default navs on ALL resolutions */
+.o_main_navbar,
+.o_top_fixed_element,
+.o_header_disappears,
+.o_header_standard,
+header.o_header_disappears,
+header.o_header_standard,
+header.o_main_nav {
+  display: none !important;
+}
+
 /* Hide Odoo's default navbar only on the test page */
 body[data-url="/1000"] header.o_header_standard {
     display: none !important;
@@ -15,7 +26,6 @@ body[data-url="/1000"] header.o_header_standard {
 }
 </style>
 <!-- End Hide Odoo Main Navigation-->
-
 
 <!-- Navigation CSS -->
 <style>
