@@ -4,8 +4,18 @@
 body[data-url="/1000"] header.o_header_standard {
     display: none !important;
 }
+
+/* Hide Odoo's default navigation with more specific selectors */
+#wrapwrap header .o_header_standard,
+#wrapwrap header .o_header_disappears,
+#wrapwrap header .o_main_nav,
+#wrapwrap nav.o_header_standard,
+#wrapwrap nav.o_header_disappears {
+  display: none !important;
+}
 </style>
 <!-- End Hide Odoo Main Navigation-->
+
 
 <!-- Navigation CSS -->
 <style>
