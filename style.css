@@ -228,3 +228,27 @@ footer a:hover {
     font-size: 0.875rem;
   }
 }
+
+/* Override Odoo's default backgrounds and text colors */
+@media screen {
+  body, #wrapwrap, .o_colored_level, main, section {
+    background-color: black !important;
+    color: white !important;
+  }
+
+  section.s_embed_code,
+  section.s_text_block,
+  section.s_title {
+    background-color: black !important;
+    color: white !important;
+  }
+
+  .container, .row, .col, p, h1, h2, h3, h4, h5, h6 {
+    color: white !important;
+  }
+
+  .o_cc, .o_colored_level, header, .s_title, .s_text_block {
+    box-shadow: none !important;
+    border: none !important;
+  }
+}
