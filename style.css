@@ -5,33 +5,6 @@ body {
   font-family: system-ui, -apple-system, sans-serif;
 }
 
-/* FINAL FIX: Hide all Odoo nav components */
-#wrapwrap header#top,
-#wrapwrap header.o_top_fixed_element,
-#wrapwrap header.o_header_disappears,
-#wrapwrap header.o_header_standard,
-#wrapwrap nav.o_colored_level,
-#wrapwrap nav.o_colored_level.o_cc,
-#wrapwrap .o_header_sales_three_top,
-#wrapwrap #o_main_nav,
-#wrapwrap div#o_main_nav,
-#wrapwrap nav.o_main_nav,
-#wrapwrap header .o_main_nav,
-#wrapwrap header.o_main_nav,
-#wrapwrap .o_main_navbar,
-#wrapwrap .navbar,
-#wrapwrap nav.navbar {
-  display: none !important;
-  visibility: hidden !important;
-  height: 0 !important;
-  max-height: 0 !important;
-  overflow: hidden !important;
-  padding: 0 !important;
-  margin: 0 !important;
-  border: 0 !important;
-  box-shadow: none !important;
-}
-
 /* NAVIGATION STYLING */
 .navbar {
   background-color: transparent;
