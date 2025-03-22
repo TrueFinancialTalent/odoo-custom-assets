@@ -1,5 +1,4 @@
-<!-- Hide Odoo Main Navigation -->
-<style>
+/* FINAL FIX: Hide all Odoo nav components */
 #wrapwrap header#top,
 #wrapwrap header.o_top_fixed_element,
 #wrapwrap header.o_header_disappears,
@@ -26,122 +25,85 @@
   box-shadow: none !important;
 }
 
-/* Hide Odoo's default navbar only on the test page */
-body[data-url="/1000"] header.o_header_standard {
-    display: none !important;
+/* NAVIGATION STYLING */
+.navbar {
+  background-color: transparent;
+  transition: all 0.3s ease;
 }
 
-/* Hide Odoo's default navigation with more specific selectors */
-#wrapwrap header .o_header_standard,
-#wrapwrap header .o_header_disappears,
-#wrapwrap header .o_main_nav,
-#wrapwrap nav.o_header_standard,
-#wrapwrap nav.o_header_disappears {
-  display: none !important;
+.navbar.scrolled {
+  background-color: rgba(0, 0, 0, 0.9);
+  backdrop-filter: blur(8px);
 }
 
-/* Additional #wrapwrap context overrides */
-#wrapwrap header.o_top_fixed_element,
-#wrapwrap nav.o_colored_level,
-#wrapwrap .o_colored_level.o_cc,
-#wrapwrap .o_header_disappears,
-#wrapwrap .o_header_standard,
-#wrapwrap .o_main_nav,
-#wrapwrap nav.o_main_nav,
-#wrapwrap div#o_main_nav,
-#wrapwrap header .o_header_sales_three_top,
-#wrapwrap header .o_main_nav {
-  display: none !important;
-  visibility: hidden !important;
-  height: 0 !important;
-  max-height: 0 !important;
-  overflow: hidden !important;
-  padding: 0 !important;
-  margin: 0 !important;
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
 }
-</style>
-<!-- End Hide Odoo Main Navigation-->
 
-<!-- Navigation CSS -->
-<style>
-    .navbar {
-        background-color: transparent;
-        transition: all 0.3s ease;
-    }
+.navbar-brand img {
+  height: 40px;
+  width: auto;
+}
 
-    .navbar.scrolled {
-        background-color: rgba(0, 0, 0, 0.9);
-        backdrop-filter: blur(8px);
-    }
+.navbar-brand span {
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: white;
+}
 
-    .navbar-brand {
-        display: flex;
-        align-items: center;
-        gap: 0.75rem;
-    }
+.nav-link {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: white !important;
+  transition: color 0.2s ease;
+}
 
-    .navbar-brand img {
-        height: 40px;
-        width: auto;
-    }
+.nav-link:hover {
+  color: #fbbf24 !important; /* amber-400 */
+}
 
-    .navbar-brand span {
-        font-size: 1.25rem;
-        font-weight: 700;
-        letter-spacing: -0.025em;
-        color: white;
-    }
+.btn-login,
+.btn-get-started {
+  background-color: #f59e0b; /* amber-500 */
+  color: black;
+  font-weight: 700;
+  padding: 0.5rem 1.5rem;
+  transition: all 0.2s ease;
+}
 
-    .nav-link {
-        font-size: 0.875rem;
-        font-weight: 700;
-        color: white !important;
-        transition: color 0.2s ease;
-    }
+.btn-login:hover,
+.btn-get-started:hover {
+  background-color: #d97706; /* amber-600 */
+  color: black;
+}
 
-    .nav-link:hover {
-        color: #fbbf24 !important; /* amber-400 */
-    }
+/* MOBILE MENU */
+.mobile-menu {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  background-color: black;
+  display: none;
+}
 
-    .btn-login, .btn-get-started {
-        background-color: #f59e0b; /* amber-500 */
-        color: black;
-        font-weight: 700;
-        padding: 0.5rem 1.5rem;
-        transition: all 0.2s ease;
-    }
+.mobile-menu.active {
+  display: block;
+}
 
-    .btn-login:hover, .btn-get-started:hover {
-        background-color: #d97706; /* amber-600 */
-        color: black;
-    }
+.mobile-menu .container {
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+}
 
-    /* Mobile menu styles */
-    .mobile-menu {
-        position: fixed;
-        inset: 0;
-        z-index: 50;
-        background-color: black;
-        display: none;
-    }
+.mobile-menu .nav-link {
+  font-size: 1.5rem;
+  padding: 1rem 0;
+}
 
-    .mobile-menu.active {
-        display: block;
-    }
-
-    .mobile-menu .container {
-        padding-top: 1.25rem;
-        padding-bottom: 1.25rem;
-    }
-
-    .mobile-menu .nav-link {
-        font-size: 1.5rem;
-        padding: 1rem 0;
-    }
-
-    .mobile-menu .btn {
-        width: 100%;
-        margin-top: 1rem;
-    }
-</style>
-<!-- End of Navigation CSS -->
+.mobile-menu .btn {
+  width: 100%;
+  margin-top: 1rem;
+}
