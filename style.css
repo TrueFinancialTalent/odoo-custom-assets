@@ -166,3 +166,14 @@ footer a:hover {
     font-size: 0.875rem;
   }
 }
+
+/* Utility classes */
+.h-10 {
+  height: 2.5rem !important;
+}
+
+/* Logo styles */
+img.logo {
+  height: 2.5rem !important;
+  width: auto !important;
+}
