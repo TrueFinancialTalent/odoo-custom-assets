@@ -47,14 +47,15 @@ body, #wrapwrap, main, section {
   letter-spacing: -0.025em !important;
 }
 .display-4 {
-  font-size: 4rem !important;
-  line-height: 1.1 !important;
+  font-size: 3rem !important;
+  line-height: 1.2 !important;
   font-weight: 700 !important;
   letter-spacing: -0.025em !important;
 }
 .lead {
-  font-size: 1.25rem !important;
-  line-height: 1.75 !important;
+  font-size: 1.125rem !important;
+  line-height: 1.75rem !important;
+  color: #d4d4d8 !important;
 }
 .text-amber-400 {
   color: #fbbf24 !important;
@@ -160,10 +161,12 @@ body, #wrapwrap, main, section {
 /* === HERO SECTION === */
 .hero-section {
   position: relative !important;
-  height: 800px !important;
+  min-height: 800px !important;
   width: 100% !important;
   background-color: black !important;
   padding-top: 80px !important; /* Account for fixed header */
+  display: flex !important;
+  align-items: center !important;
 }
 
 .hero-bg {
@@ -249,4 +252,19 @@ footer a:hover {
 img.logo {
   height: 2.5rem !important;
   width: auto !important;
+}
+
+/* Add responsive padding utilities */
+@media (min-width: 768px) {
+  .px-md-5 {
+    padding-left: 3rem !important;
+    padding-right: 3rem !important;
+  }
+}
+
+@media (min-width: 992px) {
+  .px-lg-5 {
+    padding-left: 3rem !important;
+    padding-right: 3rem !important;
+  }
 }
