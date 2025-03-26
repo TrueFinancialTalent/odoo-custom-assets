@@ -140,11 +140,17 @@ section {
   color: black !important;
 }
 
+/* Comprehensive button state overrides */
 .btn:focus,
-.btn:active {
+.btn:active,
+.btn-get-started:focus,
+.btn-get-started:active,
+.btn-login:focus,
+.btn-login:active {
+  transform: none !important;
   outline: none !important;
   box-shadow: none !important;
-  transform: none !important;
+  scale: 1 !important;
   padding: 0.625rem 1.5rem !important;
   font-size: 1rem !important;
   line-height: 1.5rem !important;
