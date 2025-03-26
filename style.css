@@ -151,6 +151,10 @@ section {
   transform: none !important;
 }
 
+.btn:focus:not(:active) {
+  transform: none !important;
+}
+
 /* === MOBILE MENU === */
 .mobile-menu {
   position: fixed !important;
@@ -209,6 +213,10 @@ section {
   padding-right: 2rem !important;
 }
 
+.hero-content > * {
+  margin-bottom: 2rem !important;
+}
+
 @media (min-width: 992px) {
   .hero-content {
     grid-column: span 6 !important;
@@ -246,6 +254,13 @@ section {
   margin-bottom: 2rem !important;
 }
 
+/* Button group layout */
+.btn-group {
+  display: flex !important;
+  gap: 1rem !important;
+  flex-wrap: wrap !important;
+}
+
 /* Pill tag styling */
 .rounded-pill {
   border-radius: 50rem !important;
@@ -261,6 +276,11 @@ section {
 }
 
 .hero-content .rounded-pill {
+  border-radius: 50rem !important;
+  border: 1px solid #27272a !important;
+  background-color: #18181b !important;
+  color: #fbbf24 !important;
+  display: inline-block !important;
   margin-bottom: 2rem !important;
 }
 
