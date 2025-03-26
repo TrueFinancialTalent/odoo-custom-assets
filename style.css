@@ -165,8 +165,23 @@ body, #wrapwrap, main, section {
   width: 100% !important;
   background-color: black !important;
   padding-top: 80px !important; /* Account for fixed header */
-  display: flex !important;
+  display: grid !important;
+  grid-template-columns: repeat(12, 1fr) !important;
+  gap: 1.5rem !important;
   align-items: center !important;
+  justify-content: center !important;
+}
+
+.hero-content {
+  grid-column: span 12 !important;
+  padding-left: 2rem !important;
+  padding-right: 2rem !important;
+}
+
+@media (min-width: 992px) {
+  .hero-content {
+    grid-column: span 6 !important;
+  }
 }
 
 .hero-bg {
@@ -182,6 +197,58 @@ body, #wrapwrap, main, section {
   position: absolute !important;
   inset: 0 !important;
   background: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(0,0,0,0.9), black) !important;
+}
+
+/* Container styles */
+#custom-navbar .container,
+.hero-section .container {
+  max-width: 1400px !important;
+  margin: 0 auto !important;
+  padding-left: 2rem !important;
+  padding-right: 2rem !important;
+}
+
+/* Logo styles */
+.logo {
+  height: 40px !important;
+  max-width: 100% !important;
+  object-fit: contain !important;
+  width: auto !important;
+}
+
+/* Typography adjustments */
+.display-4 {
+  font-size: 3rem !important;
+  line-height: 1.2 !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.025em !important;
+  margin-bottom: 1.25rem !important;
+}
+
+.lead {
+  font-size: 1.125rem !important;
+  line-height: 1.75rem !important;
+  color: #d4d4d8 !important;
+  margin-bottom: 1.25rem !important;
+}
+
+/* Button adjustments */
+.btn {
+  padding: 0.625rem 1.5rem !important;
+  height: 2.5rem !important;
+  font-size: 0.875rem !important;
+}
+
+.btn-group {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.75rem !important;
+}
+
+@media (min-width: 576px) {
+  .btn-group {
+    flex-direction: row !important;
+  }
 }
 
 /* === FOOTER (Optional Override) === */
