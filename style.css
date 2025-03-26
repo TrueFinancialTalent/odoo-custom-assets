@@ -140,19 +140,14 @@ section {
   color: black !important;
 }
 
-.btn-login:active,
-.btn-get-started:active {
-  transform: scale(0.97) !important;
-}
-
-.btn:focus {
+.btn:focus,
+.btn:active {
   outline: none !important;
   box-shadow: none !important;
   transform: none !important;
-}
-
-.btn:focus:not(:active) {
-  transform: none !important;
+  padding: 0.625rem 1.5rem !important;
+  font-size: 1rem !important;
+  line-height: 1.5rem !important;
 }
 
 /* === MOBILE MENU === */
@@ -278,9 +273,14 @@ section {
 .hero-content .rounded-pill {
   border-radius: 50rem !important;
   border: 1px solid #27272a !important;
-  background-color: #18181b !important;
+  background-color: rgba(24, 24, 27, 0.8) !important;
   color: #fbbf24 !important;
   display: inline-block !important;
+  padding: 0.5rem 1.25rem !important;
+  font-size: 0.875rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.05em !important;
+  text-transform: uppercase !important;
   margin-bottom: 2rem !important;
 }
 
