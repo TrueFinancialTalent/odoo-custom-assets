@@ -140,6 +140,11 @@ section {
   color: black !important;
 }
 
+.btn-login:active,
+.btn-get-started:active {
+  transform: scale(0.97) !important;
+}
+
 /* === MOBILE MENU === */
 .mobile-menu {
   position: fixed !important;
