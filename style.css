@@ -1,18 +1,31 @@
 /* === GLOBAL BASE OVERRIDES === */
-body, #wrapwrap, main, section {
-  margin: 0 !important;
-  padding: 0 !important;
+body:not(.o_edit_mode),
+#wrapwrap:not(.o_edit_mode) {
   background-color: black !important;
   color: white !important;
   font-family: Arial, Helvetica, sans-serif !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
+
+#wrapwrap main {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+section {
+  padding: 4rem 0 !important;
+}
+
 .container, .row, .col, h1, h2, h3, h4, h5, h6, p {
   color: white !important;
 }
+
 .s_title, .s_text_block, .s_embed_code {
   background-color: black !important;
   color: white !important;
 }
+
 .o_cc, .o_colored_level, header, .s_title, .s_text_block {
   box-shadow: none !important;
   border: none !important;
@@ -111,21 +124,20 @@ body, #wrapwrap, main, section {
   background-color: #f59e0b !important;
   color: black !important;
   font-weight: 700 !important;
-  padding: 0.625rem 1.25rem !important;
+  padding: 0.625rem 1.5rem !important;
   transition: all 0.2s ease !important;
   border: none !important;
   border-radius: 0.5rem !important;
   display: inline-flex !important;
   align-items: center !important;
   gap: 0.5rem !important;
-  font-size: 0.875rem !important;
-  line-height: 1.25rem !important;
+  font-size: 1rem !important;
+  line-height: 1.5rem !important;
 }
 
 .btn-login:hover, .btn-get-started:hover {
   background-color: #d97706 !important;
   color: black !important;
-  transform: translateY(-1px) !important;
 }
 
 /* === MOBILE MENU === */
@@ -163,7 +175,7 @@ body, #wrapwrap, main, section {
   position: relative !important;
   min-height: 800px !important;
   width: 100% !important;
-  background-color: black !important;
+  background-color: transparent !important;
   padding-top: 80px !important; /* Account for fixed header */
   display: grid !important;
   grid-template-columns: repeat(12, 1fr) !important;
@@ -236,7 +248,8 @@ body, #wrapwrap, main, section {
 .btn {
   padding: 0.625rem 1.5rem !important;
   height: 2.5rem !important;
-  font-size: 0.875rem !important;
+  font-size: 1rem !important;
+  line-height: 1.5rem !important;
 }
 
 .btn-group {
