@@ -390,3 +390,24 @@ img.logo {
     padding-right: 3rem !important;
   }
 }
+
+/* Right column layout fixes */
+.hero-section .col-lg-6.d-md-block {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-height: 600px !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+.hero-section .floating-consult-box {
+  max-width: 320px !important;
+  z-index: 3 !important;
+}
+
+.hero-section img {
+  object-fit: cover !important;
+  width: 100% !important;
+  height: auto !important;
+}
