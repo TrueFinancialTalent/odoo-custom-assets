@@ -515,18 +515,29 @@ img.logo {
   box-shadow: none !important;
 }
 
-/* Mobile menu button visibility */
-#custom-navbar .md\\:hidden {
+/* Mobile menu button visibility - Fixed responsive classes */
+#custom-navbar .md\:hidden {
   display: none !important;
 }
 
 @media (min-width: 768px) {
-  #custom-navbar .md\\:hidden {
-    display: inline-flex !important;
+  #custom-navbar .md\:hidden {
+    display: none !important; /* Keep hidden on desktop */
   }
   
-  #custom-navbar .md\\:flex {
+  #custom-navbar .md\:flex {
     display: flex !important;
+  }
+}
+
+/* Alternative approach - target the hamburger button directly */
+#custom-navbar button[onclick="toggleMobileMenu()"] {
+  display: none !important;
+}
+
+@media (max-width: 767px) {
+  #custom-navbar button[onclick="toggleMobileMenu()"] {
+    display: inline-flex !important;
   }
 }
 
@@ -558,6 +569,28 @@ img.logo {
 .mobile-menu .btn {
   width: 100% !important;
   margin-top: 1rem !important;
+}
+
+/* Desktop navigation visibility */
+@media (min-width: 768px) {
+  #custom-navbar nav.hidden {
+    display: flex !important;
+  }
+  
+  #custom-navbar .hidden.md\:flex {
+    display: flex !important;
+  }
+}
+
+/* Mobile navigation visibility */
+@media (max-width: 767px) {
+  #custom-navbar nav.hidden {
+    display: none !important;
+  }
+  
+  #custom-navbar .hidden.md\:flex {
+    display: none !important;
+  }
 }
 
 /* Responsive adjustments for navigation */
