@@ -431,6 +431,147 @@ img.logo {
   height: auto !important;
 }
 
+/* === NAVIGATION GRID SYSTEM FIXES === */
+/* Grid system for navigation to match React version */
+#custom-navbar .container {
+  display: grid !important;
+  grid-template-columns: repeat(12, 1fr) !important;
+  gap: 1.5rem !important;
+  align-items: center !important;
+  height: 80px !important;
+  padding-left: 1.5rem !important;
+  padding-right: 1.5rem !important;
+  max-width: 1400px !important;
+  margin: 0 auto !important;
+}
+
+/* Column spans for navigation grid */
+#custom-navbar .col-span-3 {
+  grid-column: span 3 !important;
+}
+
+#custom-navbar .col-span-6 {
+  grid-column: span 6 !important;
+}
+
+#custom-navbar .col-span-3:last-child {
+  grid-column: span 3 !important;
+}
+
+/* Enhanced navigation link styling */
+#custom-navbar .nav-link {
+  font-size: 0.875rem !important;
+  font-weight: 700 !important;
+  color: white !important;
+  transition: color 0.2s ease !important;
+  padding: 0.5rem 1rem !important;
+  text-decoration: none !important;
+}
+
+#custom-navbar .nav-link:hover {
+  color: #fbbf24 !important;
+}
+
+/* Brand text styling improvements */
+#custom-navbar .text-xl {
+  font-size: 1.25rem !important;
+  line-height: 1.75rem !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.025em !important;
+}
+
+/* Logo sizing improvements */
+#custom-navbar .h-10 {
+  height: 2.5rem !important;
+  width: auto !important;
+}
+
+/* Enhanced button styling for navigation */
+#custom-navbar button {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0.5rem !important;
+  height: 2.5rem !important;
+  padding: 0.5rem 1.5rem !important;
+  font-size: 0.875rem !important;
+  font-weight: 700 !important;
+  border-radius: 0.375rem !important;
+  border: none !important;
+  transition: all 0.2s ease-in-out !important;
+  cursor: pointer !important;
+}
+
+/* Button hover states for navigation */
+#custom-navbar button:hover {
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* Focus states for navigation buttons */
+#custom-navbar button:focus,
+#custom-navbar button:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Mobile menu button visibility */
+#custom-navbar .md\\:hidden {
+  display: none !important;
+}
+
+@media (min-width: 768px) {
+  #custom-navbar .md\\:hidden {
+    display: inline-flex !important;
+  }
+  
+  #custom-navbar .md\\:flex {
+    display: flex !important;
+  }
+}
+
+/* Enhanced mobile menu styling */
+.mobile-menu {
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 50 !important;
+  background-color: black !important;
+  display: none !important;
+  padding: 1.5rem 0 !important;
+}
+
+.mobile-menu.active {
+  display: block !important;
+}
+
+.mobile-menu .container {
+  padding-top: 1.25rem !important;
+  padding-bottom: 1.25rem !important;
+}
+
+.mobile-menu .nav-link {
+  font-size: 1.5rem !important;
+  padding: 1rem 0 !important;
+  display: block !important;
+}
+
+.mobile-menu .btn {
+  width: 100% !important;
+  margin-top: 1rem !important;
+}
+
+/* Responsive adjustments for navigation */
+@media (max-width: 768px) {
+  #custom-navbar .container {
+    height: auto !important;
+    padding: 1rem 1.5rem !important;
+  }
+  
+  #custom-navbar .text-xl {
+    font-size: 1rem !important;
+  }
+}
+
 /* === ADDITIONAL BOOTSTRAP OVERRIDES === */
 /* Ensure our custom styles take precedence over Bootstrap */
 .btn-inline.btn {
