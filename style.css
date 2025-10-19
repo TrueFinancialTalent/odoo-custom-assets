@@ -119,8 +119,13 @@ section {
   width: auto !important;
 }
 
-/* === BUTTONS === */
-.btn-login, .btn-get-started {
+/* === FIXED BUTTON STYLING === */
+/* This fixes the button class mismatch issue */
+.btn-inline {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0.5rem !important;
   height: 2.75rem !important;
   padding: 1.5rem 2rem !important;
   background-color: #f59e0b !important;
@@ -128,37 +133,44 @@ section {
   font-weight: 700 !important;
   font-size: 1rem !important;
   border-radius: 0.375rem !important;
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  gap: 0.5rem !important;
-  transition: all 0.2s ease-in-out !important;
   border: none !important;
+  transition: all 0.2s ease-in-out !important;
+  text-decoration: none !important;
+  cursor: pointer !important;
   line-height: 1.5rem !important;
 }
 
-.btn-login:hover, .btn-get-started:hover {
+.btn-inline:hover {
+  background-color: #d97706 !important;
+  color: black !important;
+  transform: none !important;
+  box-shadow: none !important;
+  text-decoration: none !important;
+}
+
+/* Override Bootstrap button styles completely */
+.btn-inline:focus,
+.btn-inline:active,
+.btn-inline:focus:not(:active),
+.btn-inline:focus-visible {
+  transform: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  border: none !important;
+  background-color: #f59e0b !important;
+  color: black !important;
+}
+
+.btn-inline:active {
+  transform: none !important;
+  outline: none !important;
+  box-shadow: none !important;
   background-color: #d97706 !important;
   color: black !important;
 }
 
-/* Comprehensive button state overrides */
-.btn-get-started:focus:not(:active),
-.btn-login:focus:not(:active) {
-  transform: none !important;
-  outline: none !important;
-  box-shadow: none !important;
-}
-
-.btn-get-started:active,
-.btn-login:active {
-  transform: none !important;
-  outline: none !important;
-  box-shadow: none !important;
-}
-
 /* Arrow icon styles */
-.btn-get-started i {
+.btn-inline i {
   width: 1.25rem !important;
   height: 1.25rem !important;
   transition: transform 0.2s ease-in-out !important;
@@ -361,8 +373,7 @@ footer a:hover {
     font-size: 1rem !important;
   }
   
-  .btn-login,
-  .btn-get-started {
+  .btn-inline {
     padding: 0.5rem 1rem !important;
     font-size: 0.875rem !important;
   }
@@ -418,4 +429,36 @@ img.logo {
   object-fit: cover !important;
   width: 100% !important;
   height: auto !important;
+}
+
+/* === ADDITIONAL BOOTSTRAP OVERRIDES === */
+/* Ensure our custom styles take precedence over Bootstrap */
+.btn-inline.btn {
+  /* Override any Bootstrap button classes */
+  background-color: #f59e0b !important;
+  border-color: #f59e0b !important;
+  color: black !important;
+}
+
+.btn-inline.btn:hover,
+.btn-inline.btn:focus,
+.btn-inline.btn:active {
+  background-color: #d97706 !important;
+  border-color: #d97706 !important;
+  color: black !important;
+  box-shadow: none !important;
+}
+
+/* Override Bootstrap's focus styles */
+.btn-inline:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Ensure buttons don't inherit Bootstrap's default button styles */
+button.btn-inline,
+a.btn-inline {
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  appearance: none !important;
 }
