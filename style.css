@@ -696,3 +696,32 @@ a.text-black,
 header + #custom-navbar {
   display: none !important;
 }
+
+/* === BUTTON LAYOUT FIXES === */
+/* Fix button layout - ensure buttons are side-by-side */
+#custom-navbar .col-span-3.flex.items-center.justify-end.gap-4 {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+  gap: 1rem !important;
+}
+
+/* Ensure buttons don't stack vertically */
+#custom-navbar .col-span-3.flex.items-center.justify-end.gap-4 button {
+  display: inline-flex !important;
+  flex-shrink: 0 !important;
+  white-space: nowrap !important;
+}
+
+/* Fix any CSS that might be forcing vertical stacking */
+#custom-navbar .col-span-3.flex.items-center.justify-end.gap-4 {
+  flex-wrap: nowrap !important;
+}
+
+/* Ensure proper button spacing and alignment */
+#custom-navbar .col-span-3.flex.items-center.justify-end.gap-4 button:not(.md\:hidden) {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
