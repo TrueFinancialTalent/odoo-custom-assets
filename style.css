@@ -588,31 +588,47 @@ a.btn-inline {
 }
 
 /* === TAILWIND CLASS OVERRIDES FOR NAVIGATION === */
-/* Override Tailwind classes used in navigation HTML */
-.bg-amber-500 {
+/* Override Tailwind classes used in navigation HTML with maximum specificity */
+.s_embed_code_embedded .bg-amber-500,
+#custom-navbar .bg-amber-500,
+button.bg-amber-500 {
   background-color: #f59e0b !important;
+  background: #f59e0b !important;
 }
 
-.text-black {
+.s_embed_code_embedded .text-black,
+#custom-navbar .text-black,
+button.text-black {
   color: black !important;
 }
 
-.hover\:bg-amber-600:hover {
+.s_embed_code_embedded .hover\:bg-amber-600:hover,
+#custom-navbar .hover\:bg-amber-600:hover,
+button.hover\:bg-amber-600:hover {
   background-color: #d97706 !important;
+  background: #d97706 !important;
 }
 
-.hover\:text-amber-400:hover {
+.s_embed_code_embedded .hover\:text-amber-400:hover,
+#custom-navbar .hover\:text-amber-400:hover,
+button.hover\:text-amber-400:hover {
   color: #fbbf24 !important;
 }
 
-/* Navigation button specific styling */
-#custom-navbar button.bg-amber-500 {
+/* Navigation button specific styling with maximum specificity */
+.s_embed_code_embedded #custom-navbar button.bg-amber-500,
+#custom-navbar button.bg-amber-500,
+button.bg-amber-500 {
   background-color: #f59e0b !important;
+  background: #f59e0b !important;
   color: black !important;
 }
 
-#custom-navbar button.bg-amber-500:hover {
+.s_embed_code_embedded #custom-navbar button.bg-amber-500:hover,
+#custom-navbar button.bg-amber-500:hover,
+button.bg-amber-500:hover {
   background-color: #d97706 !important;
+  background: #d97706 !important;
   color: black !important;
 }
 
