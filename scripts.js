@@ -34,6 +34,9 @@ window.addEventListener("scroll", function () {
   // ChatGPT's JavaScript Guardian - ensures our CSS stays last
   // This runs from GitHub (once) instead of Odoo embedded code (twice)
   (function ensureMyCssIsLast(){
+    // Idempotent guard - prevents running twice
+    if (window.__TFT_GUARD_RAN__) return;
+    window.__TFT_GUARD_RAN__ = true;
     const href1 = "https://raw.githubusercontent.com/TrueFinancialTalent/odoo-custom-assets/main/style.css";
     const href2 = "https://cdn.jsdelivr.net/gh/TrueFinancialTalent/odoo-custom-assets/style.css";
     function bumpToEnd(link){
