@@ -587,6 +587,35 @@ a.btn-inline {
   appearance: none !important;
 }
 
+/* === TAILWIND CLASS OVERRIDES FOR NAVIGATION === */
+/* Override Tailwind classes used in navigation HTML */
+.bg-amber-500 {
+  background-color: #f59e0b !important;
+}
+
+.text-black {
+  color: black !important;
+}
+
+.hover\:bg-amber-600:hover {
+  background-color: #d97706 !important;
+}
+
+.hover\:text-amber-400:hover {
+  color: #fbbf24 !important;
+}
+
+/* Navigation button specific styling */
+#custom-navbar button.bg-amber-500 {
+  background-color: #f59e0b !important;
+  color: black !important;
+}
+
+#custom-navbar button.bg-amber-500:hover {
+  background-color: #d97706 !important;
+  color: black !important;
+}
+
 /* === FORCE CUSTOM NAVIGATION TO SHOW === */
 /* Make sure our custom navigation is always visible and on top */
 #custom-navbar {
