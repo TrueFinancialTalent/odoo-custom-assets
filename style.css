@@ -587,49 +587,57 @@ a.btn-inline {
   appearance: none !important;
 }
 
-/* === TAILWIND CLASS OVERRIDES FOR NAVIGATION === */
-/* Override Tailwind classes used in navigation HTML with maximum specificity */
-.s_embed_code_embedded .bg-amber-500,
-#custom-navbar .bg-amber-500,
-button.bg-amber-500 {
-  background-color: #f59e0b !important;
-  background: #f59e0b !important;
+/* ===============================
+   TFF Amber Button Fix Pack
+   ChatGPT's comprehensive solution
+   =============================== */
+
+/* 0) Single source of truth for amber */
+:root { 
+  --tft-amber-500: #f59e0b; 
+  --tft-amber-600: #d97706; 
 }
 
-.s_embed_code_embedded .text-black,
-#custom-navbar .text-black,
-button.text-black {
-  color: black !important;
+/* 1) Harden the background utility across element types */
+.bg-amber-500,
+button.bg-amber-500,
+a.bg-amber-500,
+[role="button"].bg-amber-500 {
+  background-color: var(--tft-amber-500) !important;
+  background: var(--tft-amber-500) !important;
 }
 
-.s_embed_code_embedded .hover\:bg-amber-600:hover,
-#custom-navbar .hover\:bg-amber-600:hover,
-button.hover\:bg-amber-600:hover {
-  background-color: #d97706 !important;
-  background: #d97706 !important;
+/* 2) Hover state you're using in markup */
+.hover\:bg-amber-600:hover,
+.bg-amber-500:hover {
+  background-color: var(--tft-amber-600) !important;
+  background: var(--tft-amber-600) !important;
 }
 
-.s_embed_code_embedded .hover\:text-amber-400:hover,
-#custom-navbar .hover\:text-amber-400:hover,
-button.hover\:text-amber-400:hover {
-  color: #fbbf24 !important;
+/* 3) Text color utility (covers anchors & buttons explicitly) */
+.text-black,
+button.text-black,
+a.text-black,
+[role="button"].text-black {
+  color: #000 !important;
 }
 
-/* Navigation button specific styling with maximum specificity */
-.s_embed_code_embedded #custom-navbar button.bg-amber-500,
-#custom-navbar button.bg-amber-500,
-button.bg-amber-500 {
-  background-color: #f59e0b !important;
-  background: #f59e0b !important;
-  color: black !important;
+/* 4) Defuse Odoo's blanket button background ONLY on public pages */
+#wrapwrap:not(.o_edit_mode) button.bg-amber-500,
+#wrapwrap:not(.o_edit_mode) a.bg-amber-500,
+#wrapwrap:not(.o_edit_mode) [role="button"].bg-amber-500 {
+  background-color: var(--tft-amber-500) !important;
 }
 
-.s_embed_code_embedded #custom-navbar button.bg-amber-500:hover,
-#custom-navbar button.bg-amber-500:hover,
-button.bg-amber-500:hover {
-  background-color: #d97706 !important;
-  background: #d97706 !important;
-  color: black !important;
+/* 5) If amber button also carries Bootstrap's .btn */
+#wrapwrap:not(.o_edit_mode) .btn.bg-amber-500 {
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+
+/* 6) Neutralize any legacy rules turning buttons transparent */
+#wrapwrap:not(.o_edit_mode) .bg-amber-500 {
+  background-image: none !important;
 }
 
 /* === FORCE CUSTOM NAVIGATION TO SHOW === */
