@@ -861,3 +861,75 @@ header + #custom-navbar {
   padding: 1.5rem !important;
   backdrop-filter: blur(8px) !important;
 }
+
+/* === HERO SECTION LAYOUT FIXES === */
+/* Fix hero button layout - force side-by-side */
+#wrapwrap:not(.o_edit_mode) section .flex.flex-col.sm\:flex-row,
+#wrapwrap:not(.o_edit_mode) .s_embed_code_embedded section .flex.flex-col.sm\:flex-row {
+  display: flex !important;
+  flex-direction: row !important;
+  gap: 1rem !important;
+  align-items: center !important;
+  flex-wrap: nowrap !important;
+}
+
+/* Ensure right-side content displays */
+#wrapwrap:not(.o_edit_mode) section .hidden.md\:block,
+#wrapwrap:not(.o_edit_mode) .s_embed_code_embedded section .hidden.md\:block {
+  display: block !important;
+}
+
+/* Hero section grid layout */
+#wrapwrap:not(.o_edit_mode) section .grid.grid-cols-12,
+#wrapwrap:not(.o_edit_mode) .s_embed_code_embedded section .grid.grid-cols-12 {
+  display: grid !important;
+  grid-template-columns: repeat(12, minmax(0, 1fr)) !important;
+  gap: 1.5rem !important;
+  align-items: center !important;
+}
+
+/* Hero left column */
+#wrapwrap:not(.o_edit_mode) section .col-span-12.lg\:col-span-6,
+#wrapwrap:not(.o_edit_mode) .s_embed_code_embedded section .col-span-12.lg\:col-span-6 {
+  grid-column: span 12 / span 12 !important;
+}
+
+@media (min-width: 1024px) {
+  #wrapwrap:not(.o_edit_mode) section .col-span-12.lg\:col-span-6,
+  #wrapwrap:not(.o_edit_mode) .s_embed_code_embedded section .col-span-12.lg\:col-span-6 {
+    grid-column: span 6 / span 6 !important;
+  }
+}
+
+/* Hero right column */
+#wrapwrap:not(.o_edit_mode) section .col-span-12.lg\:col-span-6:last-child,
+#wrapwrap:not(.o_edit_mode) .s_embed_code_embedded section .col-span-12.lg\:col-span-6:last-child {
+  grid-column: span 12 / span 12 !important;
+}
+
+@media (min-width: 1024px) {
+  #wrapwrap:not(.o_edit_mode) section .col-span-12.lg\:col-span-6:last-child,
+  #wrapwrap:not(.o_edit_mode) .s_embed_code_embedded section .col-span-12.lg\:col-span-6:last-child {
+    grid-column: span 6 / span 6 !important;
+  }
+}
+
+/* Hero image container */
+#wrapwrap:not(.o_edit_mode) section .aspect-square,
+#wrapwrap:not(.o_edit_mode) .s_embed_code_embedded section .aspect-square {
+  aspect-ratio: 1 / 1 !important;
+  border-radius: 1rem !important;
+  overflow: hidden !important;
+  border: 1px solid #27272a !important;
+  background-color: #18181b !important;
+  position: relative !important;
+}
+
+/* Hero image */
+#wrapwrap:not(.o_edit_mode) section .aspect-square img,
+#wrapwrap:not(.o_edit_mode) .s_embed_code_embedded section .aspect-square img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  opacity: 0.8 !important;
+}
