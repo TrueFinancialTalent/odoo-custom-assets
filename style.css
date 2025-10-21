@@ -640,6 +640,46 @@ a.text-black,
   background-image: none !important;
 }
 
+/* === (A) Bootstrap variable alignment for amber buttons === */
+#wrapwrap:not(.o_edit_mode) .bg-amber-500,
+#wrapwrap:not(.o_edit_mode) .btn.bg-amber-500,
+#wrapwrap:not(.o_edit_mode) a.bg-amber-500[role="button"],
+#wrapwrap:not(.o_edit_mode) button.bg-amber-500 {
+  /* keep your existing background hardening */
+  background: var(--tft-amber-500) !important;
+  background-color: var(--tft-amber-500) !important;
+
+  /* NEW: also set Bootstrap button vars so .btn uses amber */
+  --bs-btn-bg: var(--tft-amber-500) !important;
+  --bs-btn-hover-bg: var(--tft-amber-600) !important;
+  --bs-btn-active-bg: var(--tft-amber-600) !important;
+  --bs-btn-border-color: var(--tft-amber-500) !important;
+  --bs-btn-hover-border-color: var(--tft-amber-600) !important;
+  --bs-btn-active-border-color: var(--tft-amber-600) !important;
+  --bs-btn-color: #000 !important;           /* text */
+  --bs-btn-hover-color: #000 !important;
+  --bs-btn-active-color: #000 !important;
+}
+
+/* If the element also has a light/outline variant, strip it */
+#wrapwrap:not(.o_edit_mode) .bg-amber-500.btn-light,
+#wrapwrap:not(.o_edit_mode) .bg-amber-500.btn-outline-light,
+#wrapwrap:not(.o_edit_mode) .bg-amber-500[class*="btn-outline-"] {
+  background: var(--tft-amber-500) !important;
+  background-color: var(--tft-amber-500) !important;
+  border-color: var(--tft-amber-500) !important;
+}
+
+/* === (B) Ultra-specific fallback to defeat late "background: ..." rules === */
+#wrapwrap:not(.o_edit_mode) .o_cc .navbar .bg-amber-500,
+#wrapwrap:not(.o_edit_mode) .o_cc .nav .bg-amber-500,
+#wrapwrap:not(.o_edit_mode) .o_cc .btn.bg-amber-500,
+#wrapwrap:not(.o_edit_mode) .o_cc a.bg-amber-500,
+#wrapwrap:not(.o_edit_mode) header#custom-navbar .bg-amber-500 {
+  background: var(--tft-amber-500) !important;
+  background-color: var(--tft-amber-500) !important;
+}
+
 /* === FORCE CUSTOM NAVIGATION TO SHOW === */
 /* Make sure our custom navigation is always visible and on top */
 #custom-navbar {
