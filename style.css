@@ -31,7 +31,8 @@ section {
   border: none !important;
 }
 
-/* === FORCE-HIDE ODOO NAVIGATION & FOOTER === */
+/* === AGGRESSIVE ODOO NAVIGATION HIDING === */
+/* Hide ALL Odoo navigation elements with maximum specificity */
 #wrapwrap header#top,
 #wrapwrap header.o_top_fixed_element,
 #wrapwrap .o_main_navbar,
@@ -39,7 +40,28 @@ section {
 #wrapwrap .o_header_sales_three_top,
 #wrapwrap nav.o_colored_level,
 #wrapwrap #o_main_nav,
-#wrapwrap footer#footer {
+#wrapwrap footer#footer,
+header#top,
+header.o_top_fixed_element,
+.o_main_navbar,
+.o_header_disappears,
+.o_header_sales_three_top,
+nav.o_colored_level,
+#o_main_nav,
+footer#footer,
+.o_header_mobile,
+.o_header_mobile_buttons_wrap,
+.top_menu,
+#top_menu,
+.o_wsale_my_cart,
+.o_wsale_my_wish,
+.o_no_autohide_item,
+.navbar,
+.navbar-brand,
+.navbar-nav,
+.navbar-toggler,
+.offcanvas,
+#top_menu_collapse_mobile {
   display: none !important;
   visibility: hidden !important;
   height: 0 !important;
@@ -49,6 +71,9 @@ section {
   margin: 0 !important;
   opacity: 0 !important;
   pointer-events: none !important;
+  position: absolute !important;
+  left: -9999px !important;
+  top: -9999px !important;
 }
 
 /* === TYPOGRAPHY === */
@@ -77,22 +102,29 @@ section {
   color: #d4d4d8 !important;
 }
 
-/* === HEADER & NAVIGATION === */
+/* === CUSTOM NAVIGATION STYLING === */
 #custom-navbar {
   position: fixed !important;
   top: 0 !important;
   left: 0 !important;
   right: 0 !important;
-  z-index: 50 !important;
+  z-index: 9999 !important;
   transition: all 0.3s ease !important;
   padding: 1.5rem 0 !important;
   background-color: transparent !important;
+  width: 100% !important;
 }
 
 #custom-navbar .container {
-  padding-left: 2rem !important;
-  padding-right: 2rem !important;
+  display: grid !important;
+  grid-template-columns: repeat(12, 1fr) !important;
+  gap: 1.5rem !important;
+  align-items: center !important;
+  height: 80px !important;
+  padding-left: 1.5rem !important;
+  padding-right: 1.5rem !important;
   max-width: 1400px !important;
+  margin: 0 auto !important;
 }
 
 #custom-navbar.scrolled {
@@ -100,7 +132,21 @@ section {
   backdrop-filter: blur(8px) !important;
 }
 
-.nav-link {
+/* Column spans for navigation grid */
+#custom-navbar .col-span-3 {
+  grid-column: span 3 !important;
+}
+
+#custom-navbar .col-span-6 {
+  grid-column: span 6 !important;
+}
+
+#custom-navbar .col-span-3:last-child {
+  grid-column: span 3 !important;
+}
+
+/* Navigation link styling */
+#custom-navbar .nav-link {
   font-size: 0.875rem !important;
   font-weight: 700 !important;
   color: white !important;
@@ -109,81 +155,86 @@ section {
   text-decoration: none !important;
 }
 
-.nav-link:hover {
+#custom-navbar .nav-link:hover {
   color: #fbbf24 !important;
 }
 
+/* Brand text styling */
+#custom-navbar .text-xl {
+  font-size: 1.25rem !important;
+  line-height: 1.75rem !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.025em !important;
+}
+
 /* Logo sizing */
-.logo {
-  height: 40px !important;
+#custom-navbar .h-10 {
+  height: 2.5rem !important;
   width: auto !important;
 }
 
-/* === FIXED BUTTON STYLING === */
-/* This fixes the button class mismatch issue */
-.btn-inline {
+/* Button styling */
+#custom-navbar button {
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
   gap: 0.5rem !important;
-  height: 2.75rem !important;
-  padding: 1.5rem 2rem !important;
-  background-color: #f59e0b !important;
-  color: black !important;
+  height: 2.5rem !important;
+  padding: 0.5rem 1.5rem !important;
+  font-size: 0.875rem !important;
   font-weight: 700 !important;
-  font-size: 1rem !important;
   border-radius: 0.375rem !important;
   border: none !important;
   transition: all 0.2s ease-in-out !important;
-  text-decoration: none !important;
   cursor: pointer !important;
-  line-height: 1.5rem !important;
 }
 
-.btn-inline:hover {
-  background-color: #d97706 !important;
-  color: black !important;
+#custom-navbar button:hover {
   transform: none !important;
   box-shadow: none !important;
-  text-decoration: none !important;
 }
 
-/* Override Bootstrap button styles completely */
-.btn-inline:focus,
-.btn-inline:active,
-.btn-inline:focus:not(:active),
-.btn-inline:focus-visible {
-  transform: none !important;
+#custom-navbar button:focus,
+#custom-navbar button:focus-visible {
   outline: none !important;
   box-shadow: none !important;
-  border: none !important;
-  background-color: #f59e0b !important;
-  color: black !important;
 }
 
-.btn-inline:active {
-  transform: none !important;
-  outline: none !important;
-  box-shadow: none !important;
-  background-color: #d97706 !important;
-  color: black !important;
+/* Mobile menu button visibility - FIXED */
+#custom-navbar .md\:hidden {
+  display: none !important;
 }
 
-/* Arrow icon styles */
-.btn-inline i {
-  width: 1.25rem !important;
-  height: 1.25rem !important;
-  transition: transform 0.2s ease-in-out !important;
+@media (min-width: 768px) {
+  #custom-navbar .md\:hidden {
+    display: none !important; /* Keep hidden on desktop */
+  }
+  
+  #custom-navbar .md\:flex {
+    display: flex !important;
+  }
+  
+  #custom-navbar nav.hidden {
+    display: flex !important;
+  }
 }
 
-/* Button group layout */
-.hero-section .btn-group {
-  display: flex !important;
-  gap: 1rem !important;
-  flex-wrap: wrap !important;
+/* Mobile menu button - target directly */
+#custom-navbar button[onclick="toggleMobileMenu()"] {
+  display: none !important;
 }
 
-/* === MOBILE MENU === */
+@media (max-width: 767px) {
+  #custom-navbar button[onclick="toggleMobileMenu()"] {
+    display: inline-flex !important;
+  }
+  
+  #custom-navbar nav.hidden {
+    display: none !important;
+  }
+}
+
+/* Mobile menu styling */
 .mobile-menu {
   position: fixed !important;
   inset: 0 !important;
@@ -310,6 +361,68 @@ section {
   margin-bottom: 2rem !important;
 }
 
+/* === FIXED BUTTON STYLING === */
+.btn-inline {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0.5rem !important;
+  height: 2.75rem !important;
+  padding: 1.5rem 2rem !important;
+  background-color: #f59e0b !important;
+  color: black !important;
+  font-weight: 700 !important;
+  font-size: 1rem !important;
+  border-radius: 0.375rem !important;
+  border: none !important;
+  transition: all 0.2s ease-in-out !important;
+  text-decoration: none !important;
+  cursor: pointer !important;
+  line-height: 1.5rem !important;
+}
+
+.btn-inline:hover {
+  background-color: #d97706 !important;
+  color: black !important;
+  transform: none !important;
+  box-shadow: none !important;
+  text-decoration: none !important;
+}
+
+.btn-inline:focus,
+.btn-inline:active,
+.btn-inline:focus:not(:active),
+.btn-inline:focus-visible {
+  transform: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  border: none !important;
+  background-color: #f59e0b !important;
+  color: black !important;
+}
+
+.btn-inline:active {
+  transform: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  background-color: #d97706 !important;
+  color: black !important;
+}
+
+/* Arrow icon styles */
+.btn-inline i {
+  width: 1.25rem !important;
+  height: 1.25rem !important;
+  transition: transform 0.2s ease-in-out !important;
+}
+
+/* Button group layout */
+.hero-section .btn-group {
+  display: flex !important;
+  gap: 1rem !important;
+  flex-wrap: wrap !important;
+}
+
 /* Utility classes */
 .d-flex { display: flex !important; }
 .flex-column { flex-direction: column !important; }
@@ -382,6 +495,11 @@ footer a:hover {
     height: auto !important;
     min-height: 600px !important;
   }
+  
+  #custom-navbar .container {
+    height: auto !important;
+    padding: 1rem 1.5rem !important;
+  }
 }
 
 /* Utility classes */
@@ -431,184 +549,9 @@ img.logo {
   height: auto !important;
 }
 
-/* === NAVIGATION GRID SYSTEM FIXES === */
-/* Grid system for navigation to match React version */
-#custom-navbar .container {
-  display: grid !important;
-  grid-template-columns: repeat(12, 1fr) !important;
-  gap: 1.5rem !important;
-  align-items: center !important;
-  height: 80px !important;
-  padding-left: 1.5rem !important;
-  padding-right: 1.5rem !important;
-  max-width: 1400px !important;
-  margin: 0 auto !important;
-}
-
-/* Column spans for navigation grid */
-#custom-navbar .col-span-3 {
-  grid-column: span 3 !important;
-}
-
-#custom-navbar .col-span-6 {
-  grid-column: span 6 !important;
-}
-
-#custom-navbar .col-span-3:last-child {
-  grid-column: span 3 !important;
-}
-
-/* Enhanced navigation link styling */
-#custom-navbar .nav-link {
-  font-size: 0.875rem !important;
-  font-weight: 700 !important;
-  color: white !important;
-  transition: color 0.2s ease !important;
-  padding: 0.5rem 1rem !important;
-  text-decoration: none !important;
-}
-
-#custom-navbar .nav-link:hover {
-  color: #fbbf24 !important;
-}
-
-/* Brand text styling improvements */
-#custom-navbar .text-xl {
-  font-size: 1.25rem !important;
-  line-height: 1.75rem !important;
-  font-weight: 700 !important;
-  letter-spacing: -0.025em !important;
-}
-
-/* Logo sizing improvements */
-#custom-navbar .h-10 {
-  height: 2.5rem !important;
-  width: auto !important;
-}
-
-/* Enhanced button styling for navigation */
-#custom-navbar button {
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  gap: 0.5rem !important;
-  height: 2.5rem !important;
-  padding: 0.5rem 1.5rem !important;
-  font-size: 0.875rem !important;
-  font-weight: 700 !important;
-  border-radius: 0.375rem !important;
-  border: none !important;
-  transition: all 0.2s ease-in-out !important;
-  cursor: pointer !important;
-}
-
-/* Button hover states for navigation */
-#custom-navbar button:hover {
-  transform: none !important;
-  box-shadow: none !important;
-}
-
-/* Focus states for navigation buttons */
-#custom-navbar button:focus,
-#custom-navbar button:focus-visible {
-  outline: none !important;
-  box-shadow: none !important;
-}
-
-/* Mobile menu button visibility - Fixed responsive classes */
-#custom-navbar .md\:hidden {
-  display: none !important;
-}
-
-@media (min-width: 768px) {
-  #custom-navbar .md\:hidden {
-    display: none !important; /* Keep hidden on desktop */
-  }
-  
-  #custom-navbar .md\:flex {
-    display: flex !important;
-  }
-}
-
-/* Alternative approach - target the hamburger button directly */
-#custom-navbar button[onclick="toggleMobileMenu()"] {
-  display: none !important;
-}
-
-@media (max-width: 767px) {
-  #custom-navbar button[onclick="toggleMobileMenu()"] {
-    display: inline-flex !important;
-  }
-}
-
-/* Enhanced mobile menu styling */
-.mobile-menu {
-  position: fixed !important;
-  inset: 0 !important;
-  z-index: 50 !important;
-  background-color: black !important;
-  display: none !important;
-  padding: 1.5rem 0 !important;
-}
-
-.mobile-menu.active {
-  display: block !important;
-}
-
-.mobile-menu .container {
-  padding-top: 1.25rem !important;
-  padding-bottom: 1.25rem !important;
-}
-
-.mobile-menu .nav-link {
-  font-size: 1.5rem !important;
-  padding: 1rem 0 !important;
-  display: block !important;
-}
-
-.mobile-menu .btn {
-  width: 100% !important;
-  margin-top: 1rem !important;
-}
-
-/* Desktop navigation visibility */
-@media (min-width: 768px) {
-  #custom-navbar nav.hidden {
-    display: flex !important;
-  }
-  
-  #custom-navbar .hidden.md\:flex {
-    display: flex !important;
-  }
-}
-
-/* Mobile navigation visibility */
-@media (max-width: 767px) {
-  #custom-navbar nav.hidden {
-    display: none !important;
-  }
-  
-  #custom-navbar .hidden.md\:flex {
-    display: none !important;
-  }
-}
-
-/* Responsive adjustments for navigation */
-@media (max-width: 768px) {
-  #custom-navbar .container {
-    height: auto !important;
-    padding: 1rem 1.5rem !important;
-  }
-  
-  #custom-navbar .text-xl {
-    font-size: 1rem !important;
-  }
-}
-
 /* === ADDITIONAL BOOTSTRAP OVERRIDES === */
 /* Ensure our custom styles take precedence over Bootstrap */
 .btn-inline.btn {
-  /* Override any Bootstrap button classes */
   background-color: #f59e0b !important;
   border-color: #f59e0b !important;
   color: black !important;
@@ -635,4 +578,21 @@ a.btn-inline {
   -webkit-appearance: none !important;
   -moz-appearance: none !important;
   appearance: none !important;
+}
+
+/* === FORCE CUSTOM NAVIGATION TO SHOW === */
+/* Make sure our custom navigation is always visible and on top */
+#custom-navbar {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  position: fixed !important;
+  z-index: 9999 !important;
+}
+
+/* Hide any duplicate navigation elements */
+#custom-navbar + #custom-navbar,
+#custom-navbar + header,
+header + #custom-navbar {
+  display: none !important;
 }
