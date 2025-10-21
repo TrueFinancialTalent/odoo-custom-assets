@@ -727,33 +727,52 @@ header + #custom-navbar {
 }
 
 /* === NAVIGATION LINKS SPACING FIX === */
-/* Fix navigation links spacing to match React version */
-#custom-navbar nav.hidden.md\:flex.col-span-6.items-center.justify-center.gap-12 {
+/* Fix navigation links spacing to match React version - ULTRA SPECIFIC to override Bootstrap */
+#wrapwrap:not(.o_edit_mode) #custom-navbar nav.hidden.md\:flex.col-span-6.items-center.justify-center.gap-12,
+#wrapwrap:not(.o_edit_mode) .s_embed_code_embedded #custom-navbar nav.hidden.md\:flex.col-span-6.items-center.justify-center.gap-12,
+#wrapwrap:not(.o_edit_mode) #custom-navbar nav[class*="gap-12"],
+#wrapwrap:not(.o_edit_mode) .s_embed_code_embedded #custom-navbar nav[class*="gap-12"] {
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
   gap: 3rem !important; /* gap-12 = 3rem */
+  flex-direction: row !important;
 }
 
-/* Ensure navigation links have proper spacing */
-#custom-navbar nav a {
-  display: inline-block !important;
-  margin-right: 0 !important;
-  padding: 0.5rem 0 !important;
-  text-decoration: none !important;
-  white-space: nowrap !important;
-}
-
-/* Remove any margin/padding that might be causing links to run together */
-#custom-navbar nav a:last-child {
-  margin-right: 0 !important;
-}
-
-/* Ensure proper flex layout for navigation */
-#custom-navbar nav {
+/* Override Bootstrap's gap utilities that might be conflicting */
+#wrapwrap:not(.o_edit_mode) #custom-navbar nav,
+#wrapwrap:not(.o_edit_mode) .s_embed_code_embedded #custom-navbar nav {
   display: flex !important;
   flex-direction: row !important;
   align-items: center !important;
   justify-content: center !important;
   gap: 3rem !important;
+  flex-wrap: nowrap !important;
+}
+
+/* Ensure navigation links have proper spacing - override Bootstrap */
+#wrapwrap:not(.o_edit_mode) #custom-navbar nav a,
+#wrapwrap:not(.o_edit_mode) .s_embed_code_embedded #custom-navbar nav a {
+  display: inline-block !important;
+  margin-right: 0 !important;
+  margin-left: 0 !important;
+  padding: 0.5rem 0 !important;
+  text-decoration: none !important;
+  white-space: nowrap !important;
+  flex-shrink: 0 !important;
+}
+
+/* Remove any Bootstrap margin/padding that might be causing links to run together */
+#wrapwrap:not(.o_edit_mode) #custom-navbar nav a:last-child,
+#wrapwrap:not(.o_edit_mode) .s_embed_code_embedded #custom-navbar nav a:last-child {
+  margin-right: 0 !important;
+  margin-left: 0 !important;
+}
+
+/* Force override any Bootstrap flex utilities */
+#wrapwrap:not(.o_edit_mode) #custom-navbar .col-span-6,
+#wrapwrap:not(.o_edit_mode) .s_embed_code_embedded #custom-navbar .col-span-6 {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
 }
