@@ -725,3 +725,35 @@ header + #custom-navbar {
   align-items: center !important;
   justify-content: center !important;
 }
+
+/* === NAVIGATION LINKS SPACING FIX === */
+/* Fix navigation links spacing to match React version */
+#custom-navbar nav.hidden.md\:flex.col-span-6.items-center.justify-center.gap-12 {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 3rem !important; /* gap-12 = 3rem */
+}
+
+/* Ensure navigation links have proper spacing */
+#custom-navbar nav a {
+  display: inline-block !important;
+  margin-right: 0 !important;
+  padding: 0.5rem 0 !important;
+  text-decoration: none !important;
+  white-space: nowrap !important;
+}
+
+/* Remove any margin/padding that might be causing links to run together */
+#custom-navbar nav a:last-child {
+  margin-right: 0 !important;
+}
+
+/* Ensure proper flex layout for navigation */
+#custom-navbar nav {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 3rem !important;
+}
