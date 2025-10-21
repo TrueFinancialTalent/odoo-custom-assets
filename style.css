@@ -1,3 +1,9 @@
+/* === HIDE SAVED TEMPLATES === */
+/* Hide the saved template copy to prevent duplication */
+template.s_embed_code_saved {
+  display: none !important;
+}
+
 /* === GLOBAL BASE OVERRIDES === */
 body:not(.o_edit_mode),
 #wrapwrap:not(.o_edit_mode) {
@@ -103,7 +109,8 @@ footer#footer,
 }
 
 /* === CUSTOM NAVIGATION STYLING === */
-#custom-navbar {
+/* Scope navigation styles to only the embedded version */
+.s_embed_code_embedded #custom-navbar {
   position: fixed !important;
   top: 0 !important;
   left: 0 !important;
@@ -234,8 +241,8 @@ footer#footer,
   }
 }
 
-/* Mobile menu styling */
-.mobile-menu {
+/* Mobile menu styling - scoped to embedded version */
+.s_embed_code_embedded .mobile-menu {
   position: fixed !important;
   inset: 0 !important;
   z-index: 50 !important;
@@ -244,7 +251,7 @@ footer#footer,
   padding: 1.5rem 0 !important;
 }
 
-.mobile-menu.active {
+.s_embed_code_embedded .mobile-menu.active {
   display: block !important;
 }
 
