@@ -14,16 +14,14 @@ body:not(.o_edit_mode),
   padding: 0 !important;
 }
 
-/* === TYPOGRAPHY (CONTENT ONLY) ===
-   Professional default: improve reading size/line-height in content only.
-   Leave UI chrome (buttons/nav) and headings/tables unchanged for now.
+/* === TYPOGRAPHY (SITEWIDE BASE) ===
+   Standard: Premium editorial baseline.
+   Odoo/Bootstrap computes body text via these variables.
+   Setting them fixes "Normal" text everywhere without selector fights.
 */
-html body #wrapwrap main p,
-html body #wrapwrap main li,
-html body main p,
-html body main li {
-  font-size: 18px !important;
-  line-height: 1.7 !important;
+:root {
+  --bs-body-font-size: 18px;
+  --bs-body-line-height: 1.7;
 }
 
 #wrapwrap main {
