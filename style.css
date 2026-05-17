@@ -14,6 +14,16 @@ body:not(.o_edit_mode),
   padding: 0 !important;
 }
 
+/* === TYPOGRAPHY (CONTENT ONLY) ===
+   Professional default: improve reading size/line-height in content only.
+   Leave UI chrome (buttons/nav) and headings/tables unchanged for now.
+*/
+html body #wrapwrap main p,
+html body #wrapwrap main li {
+  font-size: 18px !important;
+  line-height: 1.7 !important;
+}
+
 #wrapwrap main {
   padding: 0 !important;
   margin: 0 !important;
@@ -939,16 +949,10 @@ header + #custom-navbar {
    Goal: Odoo CSS + THIS one custom file (no head bloat)
    =============================== */
 
-/* (A) Typography — content only (do NOT scale UI chrome) */
-html body #wrapwrap main {
-  font-size: 18px !important;     /* Option B */
-  line-height: 1.7 !important;
-}
-html body #wrapwrap main p,
-html body #wrapwrap main li {
-  font-size: 1em !important;
-  line-height: inherit !important;
-}
+/* (A) Typography — content only
+   NOTE: moved near top of file as the canonical typography override.
+   Keep this section here as historical context only.
+*/
 
 /* Hide Odoo default header/nav/footer chrome sitewide */
 html body #wrapwrap header#top,
