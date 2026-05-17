@@ -933,3 +933,168 @@ header + #custom-navbar {
   object-fit: cover !important;
   opacity: 0.8 !important;
 }
+
+/* ===============================
+   TFT Sitewide (Canonical) Overrides
+   Goal: Odoo CSS + THIS one custom file (no head bloat)
+   =============================== */
+
+/* (A) Typography — content only (do NOT scale UI chrome) */
+html body #wrapwrap main {
+  font-size: 18px !important;     /* Option B */
+  line-height: 1.7 !important;
+}
+html body #wrapwrap main p,
+html body #wrapwrap main li {
+  font-size: 1em !important;
+  line-height: inherit !important;
+}
+
+/* Hide Odoo default header/nav/footer chrome sitewide */
+html body #wrapwrap header#top,
+html body header#top,
+html body #wrapwrap nav.o_colored_level,
+html body nav.o_colored_level,
+html body #wrapwrap #o_main_nav,
+html body #o_main_nav,
+html body #wrapwrap footer#footer,
+html body footer#footer {
+  display: none !important;
+  visibility: hidden !important;
+  height: 0 !important;
+  max-height: 0 !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  position: absolute !important;
+  left: -9999px !important;
+  top: -9999px !important;
+}
+
+/* Cookie bar — dark glass (Odoo cookie bar is the single consent owner) */
+#website_cookies_bar{
+  position: fixed !important;
+  left: 0 !important;
+  right: 0 !important;
+  top: unset !important;
+  bottom: 0 !important;
+  inset: auto 0 0 0 !important;
+  z-index: 10050 !important;
+
+  display: block !important;
+  height: fit-content !important;
+  min-height: 56px !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 14px 18px !important;
+
+  background: rgba(15,15,15,.72) !important;
+  border-top: 1px solid rgba(255,255,255,.10) !important;
+  box-shadow: 0 -18px 60px rgba(0,0,0,.55) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+}
+
+/* If Odoo ever sets an inline `top`, hard-clear it */
+#website_cookies_bar[style]{
+  top: auto !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+}
+
+/* If Odoo marks it invisible via editor classes, re-show it on live pages */
+body:not(.o_edit_mode) #website_cookies_bar.o_snippet_invisible{
+  visibility: visible !important;
+  opacity: 1 !important;
+  height: auto !important;
+  pointer-events: auto !important;
+}
+
+/* Do NOT break Odoo modal mechanics — restyle inner panel to look like a bar */
+#website_cookies_bar > .modal.o_cookies_discrete{
+  position: fixed !important;
+  inset: auto 0 0 0 !important;
+  width: 100% !important;
+  height: auto !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  background: transparent !important;
+  pointer-events: none !important;
+}
+#website_cookies_bar > .modal.o_cookies_discrete .modal-dialog{
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  pointer-events: auto !important;
+}
+#website_cookies_bar > .modal.o_cookies_discrete .modal-content{
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  display: block !important;
+}
+
+/* Safety: if Bootstrap modal-open class gets applied, don't scroll-lock the page */
+body.modal-open,
+body[style*="overflow: hidden"]{
+  overflow: auto !important;
+  padding-right: 0 !important;
+}
+
+/* Ensure Odoo close state actually removes the bar */
+#website_cookies_bar.d-none{
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* Cookie bar typography + link color */
+#website_cookies_bar,
+#website_cookies_bar *{
+  font-family: Arial, Helvetica, sans-serif !important;
+}
+#website_cookies_bar p{
+  margin: 0 !important;
+  color: rgba(255,255,255,.88) !important;
+}
+#website_cookies_bar a{
+  color: #f59e0b !important;
+  text-decoration: none !important;
+}
+#website_cookies_bar a:hover{ text-decoration: underline !important; }
+
+/* Cookie bar buttons */
+#website_cookies_bar a[role="button"],
+#website_cookies_bar .btn{
+  border-radius: 999px !important;
+  padding: 8px 14px !important;
+  font-weight: 700 !important;
+  border: 1px solid rgba(255,255,255,.14) !important;
+  background: rgba(255,255,255,.06) !important;
+  color: rgba(255,255,255,.92) !important;
+  white-space: nowrap !important;
+  text-decoration: none !important;
+}
+#website_cookies_bar #cookies-consent-essential{
+  background: rgba(255,255,255,.06) !important;
+  border-color: rgba(255,255,255,.16) !important;
+  color: rgba(255,255,255,.92) !important;
+}
+#website_cookies_bar #cookies-consent-all{
+  background: #f59e0b !important;
+  border-color: #f59e0b !important;
+  color: #000 !important;
+}
+#website_cookies_bar #cookies-consent-all:hover{
+  background: #d97706 !important;
+  border-color: #d97706 !important;
+}
+
