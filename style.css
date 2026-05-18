@@ -29,8 +29,61 @@ body:not(.o_edit_mode),
   margin: 0 !important;
 }
 
+/* === MIGRATED FROM HOMEPAGE base_css_js EMBED (2026-05-18) ===
+   Goal: move "make the site look like TFT" styling out of page-level embed code and into the
+   canonical stylesheet, so removing the embed styles does NOT break the homepage.
+*/
+
+/* Reset layout spacing (global) */
+body, #wrapwrap, main {
+  margin: 0 !important;
+  padding: 0 !important;
+  background: black !important;
+  color: white !important;
+}
+
+section, .s_embed_code, .s_text_block, .s_title {
+  padding: 0 !important;
+  background: black !important;
+  color: white !important;
+}
+
+/* Button styles used by the embedded homepage */
+.btn-inline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1.5rem 2rem;
+  height: 2.75rem;
+  font-size: 1rem;
+  font-weight: 700;
+  color: black;
+  background-color: #f59e0b;
+  border: none;
+  border-radius: 0.375rem;
+  line-height: 1.5rem;
+  transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.btn-inline:hover {
+  background-color: #d97706;
+}
+
+.btn-inline i {
+  display: inline-block;
+  width: 1.25rem;
+  height: 1.25rem;
+  transition: transform 0.2s ease-in-out;
+}
+
+/* NOTE (2026-05-18): We are migrating layout control out of the homepage embed and into this
+   canonical stylesheet. Start with "no surprise" defaults: remove Odoo's section vertical padding
+   so embedded full-bleed sections can truly go edge-to-edge. We'll re-introduce spacing intentionally
+   per section later (via classes or more specific selectors). */
 section {
-  padding: 4rem 0 !important;
+  padding: 0 !important;
 }
 
 .container, .row, .col, h1, h2, h3, h4, h5, h6, p {
@@ -606,6 +659,36 @@ a.btn-inline {
 :root { 
   --tft-amber-500: #f59e0b; 
   --tft-amber-600: #d97706; 
+}
+
+/* === MIGRATED FROM HOMEPAGE EMBED (tft-amber-final) — 2026-05-18 ===
+   Keep this exact selector because it was the "last mile" fix that made the custom navbar
+   buttons render correctly under Odoo/Bootstrap button rules.
+*/
+#custom-navbar .bg-amber-500 {
+  --bs-btn-bg: #f59e0b !important;
+  --bs-btn-color: #000 !important;
+  --bs-btn-hover-bg: #d97706 !important;
+  --bs-btn-active-bg: #d97706 !important;
+  --bs-btn-border-color: #f59e0b !important;
+  --bs-btn-hover-border-color: #d97706 !important;
+  --bs-btn-active-border-color: #d97706 !important;
+
+  background: #f59e0b !important;
+  background-color: #f59e0b !important;
+  color: #000 !important;
+  background-image: none !important;
+  border: none !important;
+  border-radius: 0.375rem !important;
+  font-weight: 700 !important;
+  transition: all 0.2s ease-in-out !important;
+}
+#custom-navbar .bg-amber-500:hover {
+  background: #d97706 !important;
+  background-color: #d97706 !important;
+  color: #000 !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3) !important;
 }
 
 /* 1) Harden the background utility across element types */
