@@ -13,6 +13,14 @@ html, body, #wrapwrap, main {
   color: #fff !important;
 }
 
+/* Hard pin the page canvas to black (Odoo website wrapper) */
+#wrapwrap,
+#wrapwrap > main,
+#wrapwrap main {
+  background: #000 !important;
+  background-color: #000 !important;
+}
+
 /* Keep font + spacing defaults here (separate from background overrides). */
 body:not(.o_edit_mode),
 #wrapwrap:not(.o_edit_mode),
