@@ -37,12 +37,18 @@ window.addEventListener("scroll", function () {
     // Idempotent guard - prevents running twice
     if (window.__TFT_GUARD_RAN__) return;
     window.__TFT_GUARD_RAN__ = true;
-    const href1 = "https://raw.githubusercontent.com/TrueFinancialTalent/odoo-custom-assets/main/style.css";
-    const href2 = "https://cdn.jsdelivr.net/gh/TrueFinancialTalent/odoo-custom-assets/style.css";
+    const href2 = "https://cdn.jsdelivr.net/gh/TrueFinancialTalent/odoo-custom-assets@main/style.css";
     function bumpToEnd(link){
       if (link && link.parentNode) { link.parentNode.removeChild(link); document.head.appendChild(link); }
     }
-    function isMine(l){ const h=(l.getAttribute('href')||''); return h.includes("odoo-custom-assets") && h.endsWith("style.css"); }
+    function isMine(l){
+      try {
+        const u = new URL(l.getAttribute("href") || "", window.location.href);
+        return u.hostname.includes("jsdelivr.net") && u.pathname.includes("/TrueFinancialTalent/odoo-custom-assets") && u.pathname.endsWith("/style.css");
+      } catch (_err) {
+        return false;
+      }
+    }
 
     const mo = new MutationObserver(()=> {
       document.querySelectorAll('link[rel="stylesheet"]').forEach(l=>{
