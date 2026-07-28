@@ -31,44 +31,38 @@ window.addEventListener("scroll", function () {
     });
   });
 
-  // ChatGPT's JavaScript Guardian - ensures our CSS stays last
-  // This runs from GitHub (once) instead of Odoo embedded code (twice)
-  (function ensureMyCssIsLast(){
-    // Idempotent guard - prevents running twice
-    if (window.__TFT_GUARD_RAN__) return;
-    window.__TFT_GUARD_RAN__ = true;
-    const href2 = "https://cdn.jsdelivr.net/gh/TrueFinancialTalent/odoo-custom-assets@main/style.css";
-    function bumpToEnd(link){
-      if (link && link.parentNode) { link.parentNode.removeChild(link); document.head.appendChild(link); }
-    }
-    function isMine(l){
+  // Keep the jsDelivr stylesheet present without observing or reordering <head>.
+  // A previous live MutationObserver could retrigger itself by moving this link.
+  (function ensureTftStylesheet(){
+    if (window.__TFT_STYLESHEET_CHECKED__) return;
+    window.__TFT_STYLESHEET_CHECKED__ = true;
+
+    const href = "https://cdn.jsdelivr.net/gh/TrueFinancialTalent/odoo-custom-assets@main/style.css";
+    const isTftStylesheet = (link) => {
       try {
-        const u = new URL(l.getAttribute("href") || "", window.location.href);
-        return u.hostname.includes("jsdelivr.net") && u.pathname.includes("/TrueFinancialTalent/odoo-custom-assets") && u.pathname.endsWith("/style.css");
+        const url = new URL(link.getAttribute("href") || "", window.location.href);
+        return url.hostname.includes("jsdelivr.net") &&
+          url.pathname.includes("/TrueFinancialTalent/odoo-custom-assets") &&
+          url.pathname.endsWith("/style.css");
       } catch (_err) {
         return false;
       }
+    };
+
+    const addStylesheetIfMissing = () => {
+      const hasStylesheet = Array.from(document.querySelectorAll('link[rel="stylesheet"]'))
+        .some(isTftStylesheet);
+      if (hasStylesheet) return;
+
+      const link = document.createElement("link");
+      link.rel = "stylesheet";
+      link.href = href;
+      document.head.appendChild(link);
+    };
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", addStylesheetIfMissing, { once: true });
+    } else {
+      addStylesheetIfMissing();
     }
-
-    const mo = new MutationObserver(()=> {
-      document.querySelectorAll('link[rel="stylesheet"]').forEach(l=>{
-        const h = l.getAttribute('href') || '';
-        // If Odoo drops a new CSS after mine, push mine to the end again
-        if (!isMine(l) && (h.includes("web.assets_frontend") || h.includes(".css"))) {
-          const mine = [...document.querySelectorAll('link[rel="stylesheet"]')].filter(isMine).pop();
-          bumpToEnd(mine);
-        }
-      });
-    });
-
-    window.addEventListener('load', () => {
-      // ensure at least one of your sheets is present and last
-      let mine = [...document.querySelectorAll('link[rel="stylesheet"]')].find(l => isMine(l));
-      if (!mine) {
-        const l = document.createElement("link"); l.rel="stylesheet"; l.href=href2; document.head.appendChild(l);
-        mine = l;
-      }
-      bumpToEnd(mine);
-      mo.observe(document.head, { childList:true, subtree:true });
-    });
   })();
