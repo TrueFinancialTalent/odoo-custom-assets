@@ -581,7 +581,7 @@ footer a:hover {
 .tft-footer-grid {
   display: grid !important;
   gap: 2rem !important;
-  grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr) minmax(0, 1.25fr) minmax(0, 0.8fr) minmax(0, 1.35fr) !important;
 }
 
 .tft-footer-column {
@@ -714,7 +714,9 @@ footer a:hover {
 }
 
 .tft-site-footer .footer-email-link {
-  overflow-wrap: anywhere !important;
+  font-size: 0.75rem !important;
+  overflow-wrap: normal !important;
+  white-space: nowrap !important;
   word-break: normal !important;
 }
 
