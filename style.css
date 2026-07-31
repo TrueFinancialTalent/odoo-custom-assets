@@ -543,6 +543,249 @@ footer a:hover {
   color: #fbbf24;
 }
 
+
+/* === TFT CUSTOM FOOTER ===
+   Scoped footer rules for the homepage embed. The divider intentionally uses
+   normal document width instead of 100vw/negative margins to avoid overflow.
+*/
+.tft-site-footer {
+  background-color: #000 !important;
+  border: 0 !important;
+  color: #fff !important;
+  padding: 0 0 3rem !important;
+  text-align: left !important;
+}
+
+.tft-site-footer,
+.tft-site-footer * {
+  box-sizing: border-box !important;
+}
+
+.tft-footer-rule {
+  border-top: 1px solid #27272a !important;
+  height: 1px !important;
+  margin: 0 0 3rem !important;
+  width: 100% !important;
+}
+
+.tft-footer-shell {
+  border: 0 !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  max-width: 1200px !important;
+  padding-left: 1.5rem !important;
+  padding-right: 1.5rem !important;
+  width: 100% !important;
+}
+
+.tft-footer-grid {
+  display: grid !important;
+  gap: 2rem !important;
+  grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+}
+
+.tft-footer-column {
+  display: block !important;
+  min-width: 0 !important;
+  text-align: left !important;
+}
+
+.tft-footer-brand-row {
+  align-items: center !important;
+  display: flex !important;
+  gap: 0.5rem !important;
+  margin-bottom: 1rem !important;
+}
+
+.tft-footer-logo {
+  color: transparent !important;
+  flex: 0 0 auto !important;
+  height: 30px !important;
+  width: 30px !important;
+}
+
+.tft-footer-brand-name {
+  color: #fff !important;
+  font-size: 1.125rem !important;
+  font-weight: 700 !important;
+  line-height: 1.5rem !important;
+}
+
+.tft-footer-description {
+  color: #a1a1aa !important;
+  font-size: 0.875rem !important;
+  line-height: 1.25rem !important;
+  margin: 0 !important;
+  text-align: left !important;
+}
+
+.tft-footer-heading {
+  color: #fff !important;
+  font-size: 0.875rem !important;
+  font-weight: 500 !important;
+  line-height: 1.25rem !important;
+  margin: 0 0 1rem !important;
+  text-align: left !important;
+}
+
+.tft-footer-list {
+  list-style: none !important;
+  margin: 0 !important;
+  padding-left: 0 !important;
+}
+
+.tft-footer-list li {
+  margin-bottom: 0.5rem !important;
+}
+
+.tft-footer-link {
+  color: #a1a1aa !important;
+  display: inline !important;
+  font-size: 0.875rem !important;
+  line-height: 1.25rem !important;
+  text-align: left !important;
+  text-decoration: none !important;
+  transition: color 0.3s ease !important;
+}
+
+.tft-footer-link:hover {
+  color: #fbbf24 !important;
+}
+
+.tft-footer-contact-group {
+  margin-bottom: 2rem !important;
+}
+
+.tft-footer-contact-item {
+  align-items: flex-start !important;
+  display: flex !important;
+  gap: 0.75rem !important;
+  margin-bottom: 1rem !important;
+}
+
+.tft-footer-contact-item:last-child {
+  margin-bottom: 0 !important;
+}
+
+.tft-footer-contact-icon {
+  align-items: center !important;
+  display: flex !important;
+  flex: 0 0 20px !important;
+  height: 20px !important;
+  justify-content: center !important;
+  margin-top: 2px !important;
+  width: 20px !important;
+}
+
+.tft-footer-contact-icon svg {
+  height: 16px !important;
+  width: 16px !important;
+}
+
+.tft-site-footer .footer-address,
+.tft-site-footer .footer-phone-link,
+.tft-site-footer .footer-email-link {
+  font-size: 0.875rem !important;
+  line-height: 1.5rem !important;
+  margin: 0 !important;
+  text-align: left !important;
+}
+
+.tft-site-footer .footer-address {
+  color: #a1a1aa !important;
+}
+
+.tft-site-footer .footer-phone-link,
+.tft-site-footer .footer-email-link {
+  color: #fbbf24 !important;
+  text-decoration: none !important;
+  transition: color 0.3s ease !important;
+}
+
+.tft-site-footer .footer-phone-link:hover,
+.tft-site-footer .footer-email-link:hover {
+  color: #fcd34d !important;
+}
+
+.tft-footer-email-wrap {
+  flex: 1 1 auto !important;
+  min-width: 0 !important;
+  overflow: visible !important;
+}
+
+.tft-site-footer .footer-email-link {
+  overflow-wrap: anywhere !important;
+  word-break: normal !important;
+}
+
+
+.tft-footer-social {
+  margin-top: 1.5rem !important;
+}
+
+.tft-footer-social-heading {
+  color: #fff !important;
+  font-size: 0.875rem !important;
+  font-weight: 500 !important;
+  line-height: 1.25rem !important;
+  margin: 0 0 0.75rem !important;
+  text-align: left !important;
+}
+
+.tft-footer-social-list {
+  align-items: center !important;
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 0.75rem !important;
+}
+
+.tft-footer-social-link {
+  align-items: center !important;
+  color: #a1a1aa !important;
+  cursor: pointer !important;
+  display: inline-flex !important;
+  height: 28px !important;
+  justify-content: center !important;
+  text-decoration: none !important;
+  transition: color 0.3s ease !important;
+  width: 28px !important;
+}
+
+.tft-footer-social-link:hover {
+  color: #ffc300 !important;
+}
+
+.tft-footer-social-link svg {
+  height: 20px !important;
+  width: 20px !important;
+}
+
+.tft-footer-copyright {
+  background-color: #000 !important;
+  border-top: 1px solid #27272a !important;
+  padding-bottom: 2rem !important;
+  padding-top: 2rem !important;
+  text-align: center !important;
+  width: 100% !important;
+}
+
+.tft-footer-copyright-shell {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  max-width: 1200px !important;
+  padding-left: 1.5rem !important;
+  padding-right: 1.5rem !important;
+  width: 100% !important;
+}
+
+.tft-footer-copyright-text {
+  color: #71717a !important;
+  font-size: 0.875rem !important;
+  line-height: 1.25rem !important;
+  margin: 0 !important;
+  text-align: center !important;
+ }
+
 /* === SCROLL TO TOP BUTTON === */
 #o_footer_scrolltop {
   background-color: #f59e0b;
