@@ -867,6 +867,48 @@ body:not(.o_edit_mode) #website_cookies_bar.o_snippet_invisible{
   display: block !important;
 }
 
+#website_cookies_bar > .modal.o_cookies_discrete .modal-content > section,
+#website_cookies_bar > .modal.o_cookies_discrete .modal-content .o_cc,
+#website_cookies_bar > .modal.o_cookies_discrete .modal-content .o_colored_level{
+  background: transparent !important;
+  color: rgba(255,255,255,.88) !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+#website_cookies_bar > .modal.o_cookies_discrete .container{
+  background: transparent !important;
+  max-width: 1200px !important;
+  padding: 0 !important;
+}
+
+#website_cookies_bar > .modal.o_cookies_discrete .row{
+  align-items: center !important;
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 0.75rem 1rem !important;
+  margin: 0 !important;
+}
+
+#website_cookies_bar > .modal.o_cookies_discrete [class*="col-"]{
+  padding: 0 !important;
+}
+
+#website_cookies_bar > .modal.o_cookies_discrete .col-lg-8{
+  flex: 1 1 28rem !important;
+  max-width: none !important;
+}
+
+#website_cookies_bar > .modal.o_cookies_discrete .col-lg-4{
+  align-items: center !important;
+  display: flex !important;
+  flex: 0 1 auto !important;
+  gap: 0.75rem !important;
+  justify-content: flex-end !important;
+  max-width: none !important;
+  text-align: right !important;
+}
+
 /* Safety: if Bootstrap modal-open class gets applied, don't scroll-lock the page */
 body.modal-open,
 body[style*="overflow: hidden"]{
@@ -922,6 +964,32 @@ body[style*="overflow: hidden"]{
 #website_cookies_bar #cookies-consent-all:hover{
   background: #d97706 !important;
   border-color: #d97706 !important;
+}
+
+
+@media (max-width: 767.98px){
+  #website_cookies_bar{
+    padding: 12px 14px !important;
+  }
+
+  #website_cookies_bar > .modal.o_cookies_discrete .row,
+  #website_cookies_bar > .modal.o_cookies_discrete .col-lg-4{
+    align-items: stretch !important;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  #website_cookies_bar > .modal.o_cookies_discrete .col-lg-8,
+  #website_cookies_bar > .modal.o_cookies_discrete .col-lg-4{
+    flex: 1 1 100% !important;
+    width: 100% !important;
+  }
+
+  #website_cookies_bar a[role="button"],
+  #website_cookies_bar .btn{
+    text-align: center !important;
+    width: 100% !important;
+  }
 }
 
 
