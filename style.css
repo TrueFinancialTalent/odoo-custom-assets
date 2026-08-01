@@ -814,9 +814,9 @@ footer#footer,
   min-height: 56px !important;
   max-width: none !important;
   margin: 0 !important;
-  padding: 14px 18px !important;
+  padding: 0 !important;
 
-  background: #0f0f0f !important;
+  background: transparent !important;
   border-top: 0 !important;
   box-shadow: none !important;
   outline: 0 !important;
@@ -863,9 +863,12 @@ body:not(.o_edit_mode) #website_cookies_bar.o_snippet_invisible{
   margin: 0 !important;
   border: 0 !important;
   border-radius: 0 !important;
-  background: transparent !important;
+  background: #0f0f0f !important;
+  background-clip: border-box !important;
   box-shadow: none !important;
   display: block !important;
+  overflow: hidden !important;
+  padding: 14px 18px !important;
 }
 
 #website_cookies_bar > .modal.o_cookies_discrete .modal-content > section,
@@ -911,6 +914,12 @@ body:not(.o_edit_mode) #website_cookies_bar.o_snippet_invisible{
   box-shadow: none !important;
   outline: 0 !important;
   padding: 0 !important;
+}
+
+#website_cookies_bar > .modal.o_cookies_discrete .pt16,
+#website_cookies_bar > .modal.o_cookies_discrete .pb16{
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
 }
 
 #website_cookies_bar::before,
@@ -971,9 +980,24 @@ body[style*="overflow: hidden"]{
 }
 #website_cookies_bar a{
   color: #f59e0b !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
   text-decoration: none !important;
 }
 #website_cookies_bar a:hover{ text-decoration: underline !important; }
+
+#website_cookies_bar .o_cookies_bar_text_policy,
+#website_cookies_bar .o_cookies_bar_text_policy:hover,
+#website_cookies_bar .o_cookies_bar_text_policy:focus{
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  outline: 0 !important;
+  padding: 0 !important;
+  text-decoration-thickness: 1px !important;
+  text-underline-offset: 2px !important;
+}
 
 /* Cookie bar buttons */
 #website_cookies_bar a[role="button"],
@@ -1005,6 +1029,10 @@ body[style*="overflow: hidden"]{
 
 @media (max-width: 767.98px){
   #website_cookies_bar{
+    padding: 0 !important;
+  }
+
+  #website_cookies_bar > .modal.o_cookies_discrete .modal-content{
     padding: 12px 14px !important;
   }
 
