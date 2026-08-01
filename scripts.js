@@ -66,3 +66,73 @@ window.addEventListener("scroll", function () {
       addStylesheetIfMissing();
     }
   })();
+
+// TFT navigation overlay and accordion behavior.
+(function wireTftNavigation(){
+  "use strict";
+
+  function wire() {
+    const nav = document.getElementById("tft-nav");
+    const btn = document.getElementById("tft-hamburger");
+    const overlay = document.getElementById("tft-overlay");
+    const closeBtn = document.getElementById("tft-close");
+    if (!nav || !btn || !overlay || !closeBtn || nav.dataset.navWired === "true") return;
+
+    function setOpen(open) {
+      overlay.setAttribute("data-open", open ? "true" : "false");
+      btn.setAttribute("aria-expanded", open ? "true" : "false");
+      document.body.classList.toggle("tft-nav-open", open);
+    }
+
+    function toggle() {
+      setOpen(overlay.getAttribute("data-open") !== "true");
+    }
+
+    btn.addEventListener("click", function(e){
+      e.preventDefault();
+      e.stopPropagation();
+      toggle();
+    }, { passive: false });
+
+    closeBtn.addEventListener("click", function(e){
+      e.preventDefault();
+      e.stopPropagation();
+      setOpen(false);
+    }, { passive: false });
+
+    overlay.addEventListener("click", function(e){
+      const accordionHeader = e.target.closest(".tft-accordion-header");
+      if (accordionHeader) {
+        e.preventDefault();
+        e.stopPropagation();
+        const accordion = accordionHeader.closest(".tft-accordion");
+        if (!accordion) return;
+
+        const isOpen = accordion.getAttribute("data-open") === "true";
+        overlay.querySelectorAll(".tft-accordion").forEach((item) => {
+          item.setAttribute("data-open", "false");
+        });
+        accordion.setAttribute("data-open", isOpen ? "false" : "true");
+        return;
+      }
+
+      if (e.target.closest("a")) setOpen(false);
+      e.stopPropagation();
+    });
+
+    document.addEventListener("keydown", function(e){
+      if (e.key === "Escape") setOpen(false);
+    });
+
+    nav.dataset.navWired = "true";
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", wire, { once: true });
+  } else {
+    wire();
+  }
+  setTimeout(wire, 500);
+  setTimeout(wire, 1500);
+  window.addEventListener("load", wire, { once: true });
+})();

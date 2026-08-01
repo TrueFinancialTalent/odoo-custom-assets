@@ -1364,9 +1364,238 @@ a.btn-inline {
   --tft-amber-600: #d97706; 
 }
 
-/* TFT NAV (tft-nav) — migrate button styling first (2026-05-18)
-   This is the nav system actually used on the homepage (updated_navigation.html).
-*/
+/* === TFT NAV CLEAN EMBED === */
+#tft-nav {
+  position: relative;
+  z-index: 10000;
+}
+
+#tft-nav,
+#tft-nav * {
+  box-sizing: border-box;
+}
+
+#tft-nav .tft-logo {
+  height: 40px;
+  width: auto;
+}
+
+#tft-nav .tft-hamburger {
+  display: inline-flex !important;
+}
+
+#tft-nav .tft-overlay {
+  background: #000 !important;
+  color: #fff !important;
+  display: none !important;
+  inset: 0 !important;
+  position: fixed !important;
+  z-index: 9999 !important;
+}
+
+#tft-nav .tft-overlay[data-open="true"] {
+  display: block !important;
+}
+
+body.tft-nav-open {
+  overflow: hidden;
+}
+
+#tft-nav .tft-row {
+  align-items: center;
+  display: flex;
+  height: 80px;
+  justify-content: space-between;
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 0 1.5rem;
+}
+
+#tft-nav .tft-topbar {
+  background: #000 !important;
+  border-bottom: 1px solid #27272a;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 10001;
+}
+
+#tft-nav .tft-brand {
+  align-items: center;
+  display: flex;
+  gap: 0.75rem;
+}
+
+#tft-nav .tft-brand span {
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+#tft-nav .tft-dropdown {
+  position: relative;
+}
+
+#tft-nav .tft-dropdown-toggle {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  gap: 0.25rem;
+  text-align: left !important;
+}
+
+#tft-nav .tft-dropdown-toggle .tft-link {
+  text-align: left !important;
+}
+
+#tft-nav .tft-dropdown-toggle svg,
+#tft-nav .tft-accordion-header svg {
+  height: 16px;
+  transition: transform 0.2s ease;
+  width: 16px;
+}
+
+#tft-nav .tft-dropdown:hover .tft-dropdown-toggle svg,
+#tft-nav .tft-accordion[data-open="true"] .tft-accordion-header svg {
+  transform: rotate(180deg);
+}
+
+#tft-nav .tft-dropdown-menu {
+  background: #000;
+  border: 1px solid #27272a;
+  border-radius: 0.5rem;
+  left: 0;
+  margin-top: 0.5rem;
+  min-width: 240px;
+  opacity: 0;
+  padding: 0.5rem 0;
+  position: absolute;
+  text-align: left !important;
+  top: 100%;
+  transform: translateY(-10px);
+  transition: all 0.2s ease;
+  visibility: hidden;
+  z-index: 10002;
+}
+
+#tft-nav .tft-dropdown:hover .tft-dropdown-menu {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+}
+
+#tft-nav .tft-dropdown-item {
+  color: #fff;
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 0.75rem 1.25rem;
+  text-align: left !important;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  width: 100%;
+}
+
+#tft-nav .tft-dropdown-item:hover {
+  background: #18181b;
+  color: #fbbf24;
+  padding-left: 1.5rem;
+}
+
+#tft-nav .tft-iconbtn {
+  align-items: center;
+  background: none !important;
+  border: none !important;
+  border-radius: 8px;
+  color: #fff !important;
+  cursor: pointer;
+  display: inline-flex;
+  height: 40px;
+  justify-content: center;
+  width: 40px;
+}
+
+#tft-nav .tft-iconbtn:focus {
+  outline: 2px solid #f59e0b;
+  outline-offset: 2px;
+}
+
+#tft-nav .tft-overlay .tft-header {
+  border-bottom: 1px solid #27272a;
+}
+
+#tft-nav .tft-overlay .tft-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1.25rem 1.5rem;
+}
+
+#tft-nav .tft-link {
+  color: #fff !important;
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 700;
+  padding: 0.75rem 0;
+  text-decoration: none !important;
+  transition: color 0.2s ease-in-out;
+}
+
+#tft-nav .tft-link:hover {
+  color: #fbbf24 !important;
+}
+
+#tft-nav .tft-accordion {
+  border-bottom: 1px solid #27272a;
+}
+
+#tft-nav .tft-accordion-header {
+  align-items: center;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  font-size: 0.875rem;
+  font-weight: 700;
+  justify-content: space-between;
+  padding: 0.75rem 0;
+  user-select: none;
+}
+
+#tft-nav .tft-accordion-header:hover {
+  color: #fbbf24;
+}
+
+#tft-nav .tft-accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+#tft-nav .tft-accordion[data-open="true"] .tft-accordion-content {
+  max-height: 500px;
+}
+
+#tft-nav .tft-accordion-item {
+  color: #a1a1aa;
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 0.625rem 0 0.625rem 1rem;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+#tft-nav .tft-accordion-item:hover {
+  color: #fbbf24;
+}
+
+#tft-nav .tft-mobile-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
 #tft-nav .tft-btn {
   display: inline-flex;
   align-items: center;
@@ -1382,26 +1611,54 @@ a.btn-inline {
   padding: 0.75rem 1.5rem;
   font-size: 0.875rem;
 }
+
 #tft-nav .tft-btn-outline {
   border: 1px solid #27272a;
   color: #fff;
   background: transparent;
 }
+
 #tft-nav .tft-btn-outline:hover {
   background: #18181b;
   color: #fbbf24;
   border-color: #f59e0b;
 }
+
 #tft-nav .tft-btn-amber {
   background: #f59e0b;
   color: #000;
   border: none;
 }
+
 #tft-nav .tft-btn-amber:hover {
   background: #d97706;
   color: #000;
   transform: translateY(-1px);
   box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+}
+
+@media (min-width: 768px) {
+  #tft-nav .tft-hamburger {
+    display: none !important;
+  }
+
+  #tft-nav .tft-desktop-links {
+    align-items: center !important;
+    display: flex !important;
+    gap: 2.5rem !important;
+  }
+
+  #tft-nav .tft-cta {
+    display: flex !important;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 767.98px) {
+  #tft-nav .tft-desktop-links,
+  #tft-nav .tft-cta {
+    display: none !important;
+  }
 }
 
 /* === MIGRATED FROM HOMEPAGE EMBED (tft-amber-final) — 2026-05-18 ===
