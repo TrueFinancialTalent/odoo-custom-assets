@@ -988,20 +988,51 @@ body[style*="overflow: hidden"]{
 #website_cookies_bar a:hover{ text-decoration: underline !important; }
 
 #website_cookies_bar .o_cookies_bar_text_policy,
+#website_cookies_bar .o_cookies_bar_text_policy:link,
+#website_cookies_bar .o_cookies_bar_text_policy:visited,
 #website_cookies_bar .o_cookies_bar_text_policy:hover,
-#website_cookies_bar .o_cookies_bar_text_policy:focus{
+#website_cookies_bar .o_cookies_bar_text_policy:focus,
+#website_cookies_bar .o_cookies_bar_text_policy:focus-visible,
+#website_cookies_bar .o_cookies_bar_text_policy:active{
+  --bs-btn-active-bg: transparent !important;
+  --bs-btn-active-border-color: transparent !important;
+  --bs-btn-active-color: #f59e0b !important;
+  --bs-btn-bg: transparent !important;
+  --bs-btn-border-color: transparent !important;
+  --bs-btn-border-radius: 0 !important;
+  --bs-btn-box-shadow: none !important;
+  --bs-btn-color: #f59e0b !important;
+  --bs-btn-focus-box-shadow: none !important;
+  --bs-btn-hover-bg: transparent !important;
+  --bs-btn-hover-border-color: transparent !important;
+  --bs-btn-hover-color: #f59e0b !important;
+  appearance: none !important;
+  -webkit-appearance: none !important;
   background: transparent !important;
+  background-image: none !important;
   border: 0 !important;
+  border-radius: 0 !important;
   box-shadow: none !important;
+  color: #f59e0b !important;
+  display: inline !important;
+  line-height: inherit !important;
+  min-height: 0 !important;
   outline: 0 !important;
   padding: 0 !important;
+  text-decoration: none !important;
   text-decoration-thickness: 1px !important;
   text-underline-offset: 2px !important;
+  vertical-align: baseline !important;
+  white-space: normal !important;
+}
+
+#website_cookies_bar .o_cookies_bar_text_policy:hover{
+  text-decoration: underline !important;
 }
 
 /* Cookie bar buttons */
-#website_cookies_bar a[role="button"],
-#website_cookies_bar .btn{
+#website_cookies_bar a[role="button"]:not(.o_cookies_bar_text_policy),
+#website_cookies_bar .btn:not(.o_cookies_bar_text_policy){
   border-radius: 999px !important;
   padding: 8px 14px !important;
   font-weight: 700 !important;
@@ -1026,6 +1057,49 @@ body[style*="overflow: hidden"]{
   border-color: #d97706 !important;
 }
 
+/* Odoo gives the policy text link Bootstrap button classes; keep it a text link in every interaction state. */
+#website_cookies_bar a.o_cookies_bar_text_policy.btn.btn-link.btn-sm.px-0,
+#website_cookies_bar a.o_cookies_bar_text_policy.btn.btn-link.btn-sm.px-0:link,
+#website_cookies_bar a.o_cookies_bar_text_policy.btn.btn-link.btn-sm.px-0:visited,
+#website_cookies_bar a.o_cookies_bar_text_policy.btn.btn-link.btn-sm.px-0:hover,
+#website_cookies_bar a.o_cookies_bar_text_policy.btn.btn-link.btn-sm.px-0:focus,
+#website_cookies_bar a.o_cookies_bar_text_policy.btn.btn-link.btn-sm.px-0:focus-visible,
+#website_cookies_bar a.o_cookies_bar_text_policy.btn.btn-link.btn-sm.px-0:active,
+#website_cookies_bar a.o_cookies_bar_text_policy.btn.btn-link.btn-sm.px-0.active,
+#website_cookies_bar a.o_cookies_bar_text_policy.btn.btn-link.btn-sm.px-0.focus{
+  background: transparent !important;
+  background-image: none !important;
+  border: 0 !important;
+  border-color: transparent !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  color: #f59e0b !important;
+  display: inline !important;
+  font-size: inherit !important;
+  line-height: inherit !important;
+  margin: 0 !important;
+  min-height: 0 !important;
+  min-width: 0 !important;
+  outline: 0 !important;
+  padding: 0 !important;
+  text-decoration: none !important;
+  vertical-align: baseline !important;
+  white-space: normal !important;
+  width: auto !important;
+}
+
+#website_cookies_bar a.o_cookies_bar_text_policy.btn.btn-link.btn-sm.px-0:hover{
+  text-decoration: underline !important;
+}
+
+#website_cookies_bar a.o_cookies_bar_text_policy.btn.btn-link.btn-sm.px-0::before,
+#website_cookies_bar a.o_cookies_bar_text_policy.btn.btn-link.btn-sm.px-0::after{
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  content: none !important;
+  outline: 0 !important;
+}
 
 @media (max-width: 767.98px){
   #website_cookies_bar{
@@ -1049,8 +1123,8 @@ body[style*="overflow: hidden"]{
     width: 100% !important;
   }
 
-  #website_cookies_bar a[role="button"],
-  #website_cookies_bar .btn{
+  #website_cookies_bar a[role="button"]:not(.o_cookies_bar_text_policy),
+  #website_cookies_bar .btn:not(.o_cookies_bar_text_policy){
     text-align: center !important;
     width: 100% !important;
   }
