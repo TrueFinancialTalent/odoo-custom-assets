@@ -187,6 +187,171 @@ footer#footer,
   color: #d4d4d8 !important;
 }
 
+/* === SERVICES SECTION === */
+#services {
+  position: relative !important;
+  padding: 6rem 0 !important;
+  background: #000 !important;
+}
+
+#services .tft-services-eyebrow {
+  display: inline-block !important;
+  margin: 0 auto !important;
+  padding: 0.375rem 1rem !important;
+  border: 1px solid #27272a !important;
+  border-radius: 9999px !important;
+  background-color: rgba(24, 24, 27, 0.8) !important;
+  color: #fbbf24 !important;
+  font-size: 0.875rem !important;
+  font-weight: 500 !important;
+  text-align: center !important;
+}
+
+#services .tft-services-title {
+  margin-top: 1.5rem !important;
+  color: #fff !important;
+  font-size: 3rem !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.025em !important;
+  line-height: 1 !important;
+  text-align: center !important;
+}
+
+#services .tft-services-accent {
+  color: #fbbf24 !important;
+}
+
+#services .tft-services-intro {
+  max-width: 42rem !important;
+  margin: 1rem auto 0 !important;
+  color: #a1a1aa !important;
+  font-size: 1.125rem !important;
+  line-height: 1.75rem !important;
+  text-align: center !important;
+}
+
+#services .tft-services-grid {
+  display: grid !important;
+  width: 100% !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 1.5rem !important;
+}
+
+#services .tft-service-card {
+  position: relative !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  min-height: 250px !important;
+  width: 100% !important;
+  max-width: none !important;
+  padding: 2rem !important;
+  overflow: hidden !important;
+  border: 1px solid #27272a !important;
+  border-radius: 1rem !important;
+  background-color: rgba(24, 24, 24, 0.5) !important;
+  cursor: pointer !important;
+  flex: none !important;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease !important;
+}
+
+#services .tft-service-card:hover {
+  border-color: rgba(120, 53, 15, 0.5) !important;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3) !important;
+  transform: translateY(-2px) !important;
+}
+
+#services .tft-service-glow {
+  position: absolute !important;
+  top: -5rem !important;
+  right: -5rem !important;
+  width: 10rem !important;
+  height: 10rem !important;
+  border-radius: 50% !important;
+  background-color: rgba(245, 158, 11, 0.1) !important;
+  filter: blur(3rem) !important;
+  transition: background-color 0.3s ease !important;
+}
+
+#services .tft-service-card:hover .tft-service-glow {
+  background-color: rgba(245, 158, 11, 0.2) !important;
+}
+
+#services .tft-service-icon {
+  display: flex !important;
+  width: 3rem !important;
+  height: 3rem !important;
+  margin-bottom: 1.5rem !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border: 1px solid #27272a !important;
+  border-radius: 1rem !important;
+  background-color: #000 !important;
+  color: #fbbf24 !important;
+}
+
+#services .tft-service-icon-svg {
+  width: 1.5rem !important;
+  height: 1.5rem !important;
+}
+
+#services .tft-service-title {
+  margin-bottom: 0.75rem !important;
+  color: #fff !important;
+  font-size: 1.25rem !important;
+  font-weight: 700 !important;
+  text-align: left !important;
+}
+
+#services .tft-service-description {
+  margin-bottom: 1.5rem !important;
+  color: #a1a1aa !important;
+  font-size: 1rem !important;
+  text-align: left !important;
+}
+
+#services .tft-service-link {
+  display: inline-flex !important;
+  align-items: center !important;
+  color: #fbbf24 !important;
+  font-size: 0.875rem !important;
+  font-weight: 500 !important;
+  text-align: left !important;
+  text-decoration: none !important;
+  transition: color 0.3s ease !important;
+}
+
+#services .tft-service-card:hover .tft-service-link,
+#services .tft-service-link:hover {
+  color: #f59e0b !important;
+}
+
+#services .tft-service-link-icon {
+  width: 1rem !important;
+  height: 1rem !important;
+  margin-left: 0.25rem !important;
+}
+
+@media (max-width: 767px) {
+  #services {
+    padding: 6rem 0 !important;
+  }
+
+  #services .tft-services-title {
+    font-size: 2.5rem !important;
+  }
+
+  #services .tft-services-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  #services .tft-services-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
 /* === CUSTOM NAVIGATION STYLING === */
 /* Scope navigation styles to only the embedded version */
 .s_embed_code_embedded #custom-navbar {
