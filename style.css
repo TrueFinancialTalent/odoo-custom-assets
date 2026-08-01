@@ -1,10 +1,16 @@
-/* === HIDE SAVED TEMPLATES === */
-/* Hide the saved template copy to prevent duplication */
+/* === TFT SITE CSS MAP ===
+   Order mirrors the rendered homepage: foundation, Odoo chrome resets,
+   custom navigation, homepage sections, footer, then Odoo system UI.
+   Keep fixes scoped to Odoo-generated IDs/classes so the cascade stays predictable.
+*/
+
+/* === ODOO TEMPLATE SAFETY === */
+/* Odoo stores embed-code backups in template tags; hide them so they never render as duplicate page content. */
 template.s_embed_code_saved {
   display: none !important;
 }
 
-/* === GLOBAL BASE OVERRIDES === */
+/* === GLOBAL FOUNDATION === */
 /* Odoo sets `body { background-color: white; }` in web.assets_frontend.
    We want a sitewide dark skin, so hard-override the background on the actual root containers.
 */
@@ -13,7 +19,7 @@ html, body, #wrapwrap, main {
   color: #fff !important;
 }
 
-/* Hard pin the page canvas to black (Odoo website wrapper) */
+/* Pin Odoo wrapper canvases to the sitewide black background. */
 #wrapwrap,
 #wrapwrap > main,
 #wrapwrap main {
@@ -21,7 +27,7 @@ html, body, #wrapwrap, main {
   background-color: #000 !important;
 }
 
-/* Keep font + spacing defaults here (separate from background overrides). */
+/* Normalize site font and spacing without touching Odoo editor mode. */
 body:not(.o_edit_mode),
 #wrapwrap:not(.o_edit_mode),
 main:not(.o_edit_mode) {
@@ -30,10 +36,8 @@ main:not(.o_edit_mode) {
   padding: 0 !important;
 }
 
-/* === TYPOGRAPHY (SITEWIDE BASE) ===
-   Standard: Premium editorial baseline.
-   Odoo/Bootstrap computes body text via these variables.
-   Setting them fixes "Normal" text everywhere without selector fights.
+/* === SITEWIDE TYPOGRAPHY ===
+   Bootstrap/Odoo derives Normal text from these variables, so this sets the baseline without broad selector fights.
 */
 :root {
   --bs-body-font-size: 18px;
@@ -45,7 +49,7 @@ main:not(.o_edit_mode) {
   margin: 0 !important;
 }
 
-/* Odoo wrapper reset for homepage embed sections. */
+/* Let embedded homepage sections own their full-width layout. */
 #wrapwrap section.s_embed_code,
 #wrapwrap .s_embed_code_embedded {
   background: #000 !important;
@@ -55,9 +59,8 @@ main:not(.o_edit_mode) {
   width: 100% !important;
 }
 
-
-/* === AGGRESSIVE ODOO NAVIGATION HIDING === */
-/* Hide ALL Odoo navigation elements with maximum specificity */
+/* === ODOO CHROME RESET === */
+/* Hide stock Odoo navigation/footer chrome so the custom TFT chrome is the only visible site frame. */
 #wrapwrap header#top,
 #wrapwrap header.o_top_fixed_element,
 #wrapwrap .o_main_navbar,
@@ -101,1038 +104,7 @@ footer#footer,
   top: -9999px !important;
 }
 
-/* === SERVICES SECTION === */
-#services {
-  position: relative !important;
-  padding: 6rem 0 !important;
-  background: #000 !important;
-}
-
-#services > div {
-  max-width: 1440px !important;
-  margin: 0 auto !important;
-  padding: 0 1.5rem !important;
-}
-
-#services .text-center {
-  margin-bottom: 4rem !important;
-  text-align: center !important;
-}
-
-
-#services .tft-services-eyebrow {
-  display: inline-block !important;
-  margin: 0 auto !important;
-  padding: 0.375rem 1rem !important;
-  border: 1px solid #27272a !important;
-  border-radius: 9999px !important;
-  background-color: rgba(24, 24, 27, 0.8) !important;
-  color: #fbbf24 !important;
-  font-size: 0.875rem !important;
-  font-weight: 500 !important;
-  text-align: center !important;
-}
-
-#services .tft-services-title {
-  margin-top: 1.5rem !important;
-  color: #fff !important;
-  font-size: 3rem !important;
-  font-weight: 700 !important;
-  letter-spacing: -0.025em !important;
-  line-height: 1 !important;
-  text-align: center !important;
-}
-
-#services .tft-services-accent {
-  color: #fbbf24 !important;
-}
-
-#services .tft-services-intro {
-  max-width: 42rem !important;
-  margin: 1rem auto 0 !important;
-  color: #a1a1aa !important;
-  font-size: 1.125rem !important;
-  line-height: 1.75rem !important;
-  text-align: center !important;
-}
-
-#services .tft-services-grid {
-  display: grid !important;
-  width: 100% !important;
-  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
-  gap: 1.5rem !important;
-}
-
-#services .tft-service-card {
-  position: relative !important;
-  display: flex !important;
-  flex-direction: column !important;
-  justify-content: space-between !important;
-  min-height: 250px !important;
-  width: 100% !important;
-  max-width: none !important;
-  padding: 2rem !important;
-  overflow: hidden !important;
-  border: 1px solid #27272a !important;
-  border-radius: 1rem !important;
-  background-color: rgba(24, 24, 24, 0.5) !important;
-  cursor: pointer !important;
-  flex: none !important;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease !important;
-}
-
-#services .tft-service-card:hover {
-  border-color: rgba(120, 53, 15, 0.5) !important;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3) !important;
-  transform: translateY(-2px) !important;
-}
-
-#services .tft-service-glow {
-  position: absolute !important;
-  top: -5rem !important;
-  right: -5rem !important;
-  width: 10rem !important;
-  height: 10rem !important;
-  border-radius: 50% !important;
-  background-color: rgba(245, 158, 11, 0.1) !important;
-  filter: blur(3rem) !important;
-  transition: background-color 0.3s ease !important;
-}
-
-#services .tft-service-card:hover .tft-service-glow {
-  background-color: rgba(245, 158, 11, 0.2) !important;
-}
-
-#services .tft-service-icon {
-  display: flex !important;
-  width: 3rem !important;
-  height: 3rem !important;
-  margin-bottom: 1.5rem !important;
-  align-items: center !important;
-  justify-content: center !important;
-  border: 1px solid #27272a !important;
-  border-radius: 1rem !important;
-  background-color: #000 !important;
-  color: #fbbf24 !important;
-}
-
-#services .tft-service-icon-svg {
-  width: 1.5rem !important;
-  height: 1.5rem !important;
-}
-
-#services .tft-service-title {
-  margin-bottom: 0.75rem !important;
-  color: #fff !important;
-  font-size: 1.25rem !important;
-  font-weight: 700 !important;
-  text-align: left !important;
-}
-
-#services .tft-service-description {
-  margin-bottom: 1.5rem !important;
-  color: #a1a1aa !important;
-  font-size: 1rem !important;
-  text-align: left !important;
-}
-
-#services .tft-service-link {
-  display: inline-flex !important;
-  align-items: center !important;
-  color: #fbbf24 !important;
-  font-size: 0.875rem !important;
-  font-weight: 500 !important;
-  text-align: left !important;
-  text-decoration: none !important;
-  transition: color 0.3s ease !important;
-}
-
-#services .tft-service-card:hover .tft-service-link,
-#services .tft-service-link:hover {
-  color: #f59e0b !important;
-}
-
-#services .tft-service-link-icon {
-  width: 1rem !important;
-  height: 1rem !important;
-  margin-left: 0.25rem !important;
-}
-
-@media (max-width: 767px) {
-  #services {
-    padding: 6rem 0 !important;
-  }
-
-  #services .tft-services-title {
-    font-size: 2.5rem !important;
-  }
-
-  #services .tft-services-grid {
-    grid-template-columns: 1fr !important;
-  }
-}
-
-@media (min-width: 768px) and (max-width: 1023px) {
-  #services .tft-services-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-  }
-}
-
-/* === PRICING SECTION === */
-#pricing.tft-pricing-section {
-  position: relative !important;
-  overflow: hidden !important;
-  padding: 5rem 0 !important;
-  background: #000 !important;
-}
-
-#pricing .tft-pricing-bg-pattern,
-#pricing .tft-pricing-bg-gradient {
-  position: absolute !important;
-  inset: 0 !important;
-  pointer-events: none !important;
-}
-
-#pricing .tft-pricing-bg-pattern {
-  background-image: url('/placeholder.svg?height=1080&width=1920') !important;
-  background-position: center !important;
-  background-size: cover !important;
-  opacity: 0.05 !important;
-}
-
-#pricing .tft-pricing-bg-gradient {
-  background: linear-gradient(to bottom, #000, rgba(0, 0, 0, 0.95), #000) !important;
-}
-
-#pricing .tft-pricing-container {
-  position: relative !important;
-  max-width: 1440px !important;
-  margin: 0 auto !important;
-  padding: 2rem 1rem !important;
-}
-
-#pricing .tft-pricing-header {
-  margin-bottom: 3rem !important;
-  padding: 0 0.5rem !important;
-  text-align: center !important;
-}
-
-#pricing .tft-pricing-eyebrow {
-  display: inline-block !important;
-  padding: 0.375rem 1rem !important;
-  border: 1px solid #27272a !important;
-  border-radius: 9999px !important;
-  background-color: #18181b !important;
-  color: #fbbf24 !important;
-  font-size: 0.875rem !important;
-  font-weight: 500 !important;
-}
-
-#pricing .tft-pricing-title {
-  margin-top: 1.5rem !important;
-  color: #fff !important;
-  font-size: 3rem !important;
-  font-weight: 700 !important;
-  letter-spacing: -0.025em !important;
-  line-height: 1 !important;
-  text-align: center !important;
-}
-
-#pricing .tft-pricing-accent {
-  color: #fbbf24 !important;
-}
-
-#pricing .tft-pricing-intro {
-  margin-top: 1rem !important;
-  color: #a1a1aa !important;
-  font-size: 1.125rem !important;
-  line-height: 1.75rem !important;
-  text-align: center !important;
-}
-
-#pricing .tft-pricing-grid {
-  display: grid !important;
-  width: 100% !important;
-  max-width: 1440px !important;
-  margin: 0 auto !important;
-  padding: 0 1rem !important;
-  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
-  gap: 1.5rem !important;
-}
-
-#pricing .tft-pricing-card {
-  position: relative !important;
-  display: flex !important;
-  min-height: 400px !important;
-  width: 100% !important;
-  max-width: none !important;
-  flex: none !important;
-  flex-direction: column !important;
-  overflow: hidden !important;
-  padding: 2rem !important;
-  border: 1px solid #27272a !important;
-  border-radius: 1rem !important;
-  background-color: rgba(24, 24, 24, 0.5) !important;
-  color: #fff !important;
-  transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease !important;
-}
-
-#pricing .tft-pricing-card:hover {
-  border-color: rgba(120, 53, 15, 0.5) !important;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3) !important;
-  transform: translateY(-2px) !important;
-}
-
-#pricing .tft-pricing-card-featured {
-  border-color: rgba(120, 53, 15, 0.3) !important;
-}
-
-#pricing .tft-pricing-card-featured:hover {
-  border-color: rgba(245, 158, 11, 0.3) !important;
-}
-
-#pricing .tft-pricing-glow {
-  position: absolute !important;
-  top: -5rem !important;
-  right: -5rem !important;
-  width: 10rem !important;
-  height: 10rem !important;
-  border-radius: 50% !important;
-  background-color: rgba(245, 158, 11, 0.1) !important;
-  filter: blur(3rem) !important;
-  transition: background-color 0.3s ease !important;
-}
-
-#pricing .tft-pricing-card-featured .tft-pricing-glow,
-#pricing .tft-pricing-card:hover .tft-pricing-glow {
-  background-color: rgba(245, 158, 11, 0.2) !important;
-}
-
-#pricing .tft-pricing-badge {
-  position: absolute !important;
-  top: -0.25rem !important;
-  right: -0.25rem !important;
-  padding: 0.25rem 0.75rem !important;
-  border-top-right-radius: 0.75rem !important;
-  border-bottom-left-radius: 0.75rem !important;
-  background-color: #f59e0b !important;
-  color: #000 !important;
-  font-size: 0.75rem !important;
-  font-weight: 500 !important;
-}
-
-#pricing .tft-pricing-card-header {
-  margin-bottom: 1.5rem !important;
-}
-
-#pricing .tft-pricing-card-title {
-  margin: 0 !important;
-  color: #fff !important;
-  font-size: 1.125rem !important;
-  font-weight: 600 !important;
-  line-height: 1.75rem !important;
-  text-align: left !important;
-}
-
-#pricing .tft-pricing-rate {
-  display: flex !important;
-  align-items: baseline !important;
-  margin-top: 1rem !important;
-}
-
-#pricing .tft-pricing-price {
-  color: #fff !important;
-  font-size: 2.25rem !important;
-  font-weight: 700 !important;
-  line-height: 2.5rem !important;
-}
-
-#pricing .tft-pricing-unit {
-  margin-left: 0.25rem !important;
-  color: #a1a1aa !important;
-  font-size: 1rem !important;
-  line-height: 1.5rem !important;
-}
-
-#pricing .tft-pricing-subtitle {
-  display: block !important;
-  min-height: 40px !important;
-  margin: 0.5rem 0 0 !important;
-  color: #a1a1aa !important;
-  font-size: 0.875rem !important;
-  line-height: 1.25rem !important;
-  text-align: left !important;
-}
-
-#pricing .tft-pricing-features {
-  flex-grow: 1 !important;
-  margin: 1.5rem 0 2rem !important;
-  padding: 0 !important;
-  list-style: none !important;
-}
-
-#pricing .tft-pricing-features li {
-  display: flex !important;
-  align-items: center !important;
-  gap: 0.75rem !important;
-  margin-bottom: 1rem !important;
-  color: #fff !important;
-  font-size: 0.875rem !important;
-  line-height: 1.25rem !important;
-  list-style: none !important;
-}
-
-#pricing .tft-pricing-dot {
-  display: block !important;
-  width: 0.375rem !important;
-  height: 0.375rem !important;
-  flex-shrink: 0 !important;
-  border-radius: 50% !important;
-  background-color: #fbbf24 !important;
-}
-
-#pricing .tft-pricing-button {
-  display: inline-flex !important;
-  width: 100% !important;
-  height: 2.5rem !important;
-  align-items: center !important;
-  justify-content: center !important;
-  gap: 0.5rem !important;
-  padding: 0.5rem 1rem !important;
-  border: none !important;
-  border-radius: 0.375rem !important;
-  font-size: 0.875rem !important;
-  font-weight: 500 !important;
-  text-align: center !important;
-  text-decoration: none !important;
-  transition: background-color 0.3s ease, color 0.3s ease !important;
-}
-
-#pricing .tft-pricing-button-secondary {
-  background-color: #27272a !important;
-  color: #fff !important;
-}
-
-#pricing .tft-pricing-button-secondary:hover {
-  background-color: #f59e0b !important;
-  color: #000 !important;
-}
-
-#pricing .tft-pricing-button-primary {
-  background-color: #f59e0b !important;
-  color: #000 !important;
-}
-
-#pricing .tft-pricing-button-primary:hover {
-  background-color: #fbbf24 !important;
-  color: #000 !important;
-}
-
-@media (max-width: 767px) {
-  #pricing .tft-pricing-title {
-    font-size: 2.5rem !important;
-  }
-
-  #pricing .tft-pricing-grid {
-    grid-template-columns: 1fr !important;
-    max-width: 100% !important;
-  }
-}
-
-@media (min-width: 768px) and (max-width: 1023px) {
-  #pricing .tft-pricing-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-  }
-}
-
-/* === TFT CUSTOM FOOTER ===
-   Scoped footer rules for the homepage embed. The divider intentionally uses
-   normal document width instead of 100vw/negative margins to avoid overflow.
-*/
-.tft-site-footer {
-  background-color: #000 !important;
-  border: 0 !important;
-  color: #fff !important;
-  padding: 0 0 3rem !important;
-  text-align: left !important;
-}
-
-.tft-site-footer,
-.tft-site-footer * {
-  box-sizing: border-box !important;
-}
-
-.tft-footer-rule {
-  border-top: 1px solid #27272a !important;
-  height: 1px !important;
-  margin: 0 0 3rem !important;
-  width: 100% !important;
-}
-
-.tft-footer-shell {
-  border: 0 !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-  max-width: 1200px !important;
-  padding-left: 1.5rem !important;
-  padding-right: 1.5rem !important;
-  width: 100% !important;
-}
-
-.tft-footer-grid {
-  display: grid !important;
-  gap: 2rem !important;
-  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr) minmax(0, 1.25fr) minmax(0, 0.8fr) minmax(0, 1.35fr) !important;
-}
-
-.tft-footer-column {
-  display: block !important;
-  min-width: 0 !important;
-  text-align: left !important;
-}
-
-.tft-footer-brand-row {
-  align-items: center !important;
-  display: flex !important;
-  gap: 0.5rem !important;
-  margin-bottom: 1rem !important;
-}
-
-.tft-footer-logo {
-  color: transparent !important;
-  flex: 0 0 auto !important;
-  height: 30px !important;
-  width: 30px !important;
-}
-
-.tft-footer-brand-name {
-  color: #fff !important;
-  font-size: 1.125rem !important;
-  font-weight: 700 !important;
-  line-height: 1.5rem !important;
-}
-
-.tft-footer-description {
-  color: #a1a1aa !important;
-  font-size: 0.875rem !important;
-  line-height: 1.25rem !important;
-  margin: 0 !important;
-  text-align: left !important;
-}
-
-.tft-footer-heading {
-  color: #fff !important;
-  font-size: 0.875rem !important;
-  font-weight: 500 !important;
-  line-height: 1.25rem !important;
-  margin: 0 0 1rem !important;
-  text-align: left !important;
-}
-
-.tft-footer-list {
-  list-style: none !important;
-  margin: 0 !important;
-  padding-left: 0 !important;
-}
-
-.tft-footer-list li {
-  margin-bottom: 0.5rem !important;
-}
-
-.tft-footer-link {
-  color: #a1a1aa !important;
-  display: inline !important;
-  font-size: 0.875rem !important;
-  line-height: 1.25rem !important;
-  text-align: left !important;
-  text-decoration: none !important;
-  transition: color 0.3s ease !important;
-}
-
-.tft-footer-link:hover {
-  color: #fbbf24 !important;
-}
-
-.tft-footer-contact-group {
-  margin-bottom: 2rem !important;
-}
-
-.tft-footer-contact-item {
-  align-items: flex-start !important;
-  display: flex !important;
-  flex-direction: column !important;
-  gap: 0.25rem !important;
-  margin-bottom: 1rem !important;
-}
-
-.tft-footer-contact-item:last-child {
-  margin-bottom: 0 !important;
-}
-
-.tft-footer-contact-icon {
-  color: #71717a !important;
-  display: block !important;
-  flex: none !important;
-  font-size: 0.6875rem !important;
-  font-weight: 600 !important;
-  height: auto !important;
-  letter-spacing: 0.08em !important;
-  line-height: 1rem !important;
-  margin: 0 !important;
-  text-transform: uppercase !important;
-  width: auto !important;
-}
-
-.tft-footer-contact-icon svg {
-  display: none !important;
-}
-
-.tft-site-footer .footer-address,
-.tft-site-footer .footer-phone-link,
-.tft-site-footer .footer-email-link {
-  font-size: 0.875rem !important;
-  line-height: 1.5rem !important;
-  margin: 0 !important;
-  text-align: left !important;
-}
-
-.tft-site-footer .footer-address {
-  color: #a1a1aa !important;
-}
-
-.tft-site-footer .footer-phone-link,
-.tft-site-footer .footer-email-link {
-  color: #fbbf24 !important;
-  text-decoration: none !important;
-  transition: color 0.3s ease !important;
-}
-
-.tft-site-footer .footer-phone-link:hover,
-.tft-site-footer .footer-email-link:hover {
-  color: #fcd34d !important;
-}
-
-.tft-footer-email-wrap {
-  flex: 1 1 auto !important;
-  min-width: 0 !important;
-  overflow: visible !important;
-}
-
-.tft-site-footer .footer-email-link {
-  font-size: 0.75rem !important;
-  overflow-wrap: normal !important;
-  white-space: nowrap !important;
-  word-break: normal !important;
-}
-
-
-.tft-footer-social {
-  margin-top: 1.5rem !important;
-}
-
-.tft-footer-social-heading {
-  color: #fff !important;
-  font-size: 0.875rem !important;
-  font-weight: 500 !important;
-  line-height: 1.25rem !important;
-  margin: 0 0 0.75rem !important;
-  text-align: left !important;
-}
-
-.tft-footer-social-list {
-  align-items: center !important;
-  display: flex !important;
-  flex-wrap: wrap !important;
-  gap: 0.5rem !important;
-}
-
-.tft-footer-social-link {
-  align-items: center !important;
-  border: 1px solid #27272a !important;
-  border-radius: 4px !important;
-  color: #a1a1aa !important;
-  cursor: pointer !important;
-  display: inline-flex !important;
-  font-size: 0.75rem !important;
-  font-weight: 500 !important;
-  height: 2rem !important;
-  justify-content: center !important;
-  line-height: 1 !important;
-  padding: 0 0.625rem !important;
-  text-decoration: none !important;
-  transition: border-color 0.3s ease, color 0.3s ease !important;
-  width: auto !important;
-}
-
-.tft-footer-social-link:hover {
-  border-color: #ffc300 !important;
-  color: #ffc300 !important;
-}
-
-.tft-footer-social-link svg {
-  display: none !important;
-}
-
-.tft-footer-copyright {
-  background-color: #000 !important;
-  border-top: 1px solid #27272a !important;
-  padding-bottom: 2rem !important;
-  padding-top: 2rem !important;
-  text-align: center !important;
-  width: 100% !important;
-}
-
-.tft-footer-copyright-shell {
-  margin-left: auto !important;
-  margin-right: auto !important;
-  max-width: 1200px !important;
-  padding-left: 1.5rem !important;
-  padding-right: 1.5rem !important;
-  width: 100% !important;
-}
-
-.tft-footer-copyright-text {
-  color: #71717a !important;
-  font-size: 0.875rem !important;
-  line-height: 1.25rem !important;
-  margin: 0 !important;
-  text-align: center !important;
- }
-
-/* === COOKIE BAR === */
-#website_cookies_bar{
-  position: fixed !important;
-  left: 0 !important;
-  right: 0 !important;
-  top: unset !important;
-  bottom: 0 !important;
-  inset: auto 0 0 0 !important;
-  z-index: 10050 !important;
-
-  display: block !important;
-  height: fit-content !important;
-  min-height: 56px !important;
-  max-width: none !important;
-  margin: 0 !important;
-  padding: 0 !important;
-
-  background: transparent !important;
-  border-top: 0 !important;
-  box-shadow: none !important;
-  outline: 0 !important;
-  backdrop-filter: none !important;
-  -webkit-backdrop-filter: none !important;
-}
-
-/* If Odoo ever sets an inline `top`, hard-clear it */
-#website_cookies_bar[style]{
-  top: auto !important;
-  left: 0 !important;
-  right: 0 !important;
-  bottom: 0 !important;
-}
-
-/* If Odoo marks it invisible via editor classes, re-show it on live pages */
-body:not(.o_edit_mode) #website_cookies_bar.o_snippet_invisible{
-  visibility: visible !important;
-  opacity: 1 !important;
-  height: auto !important;
-  pointer-events: auto !important;
-}
-
-/* Do NOT break Odoo modal mechanics; restyle inner panel to look like a bar */
-#website_cookies_bar > .modal.o_cookies_discrete{
-  position: fixed !important;
-  inset: auto 0 0 0 !important;
-  width: 100% !important;
-  height: auto !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  background: transparent !important;
-  pointer-events: none !important;
-}
-#website_cookies_bar > .modal.o_cookies_discrete .modal-dialog{
-  width: 100% !important;
-  max-width: none !important;
-  margin: 0 !important;
-  pointer-events: auto !important;
-}
-#website_cookies_bar > .modal.o_cookies_discrete .modal-content{
-  width: 100% !important;
-  max-width: none !important;
-  margin: 0 !important;
-  border: 0 !important;
-  border-radius: 0 !important;
-  background: #0f0f0f !important;
-  background-clip: border-box !important;
-  box-shadow: none !important;
-  display: block !important;
-  overflow: hidden !important;
-  padding: 14px 18px !important;
-}
-
-#website_cookies_bar > .modal.o_cookies_discrete .modal-content > section,
-#website_cookies_bar > .modal.o_cookies_discrete .modal-content .o_cc,
-#website_cookies_bar > .modal.o_cookies_discrete .modal-content .o_colored_level{
-  background: transparent !important;
-  background-image: none !important;
-  border: 0 !important;
-  box-shadow: none !important;
-  color: rgba(255,255,255,.88) !important;
-  margin: 0 !important;
-  outline: 0 !important;
-  padding: 0 !important;
-}
-
-#website_cookies_bar > .modal.o_cookies_discrete .container{
-  background: transparent !important;
-  background-image: none !important;
-  border: 0 !important;
-  box-shadow: none !important;
-  max-width: 1200px !important;
-  outline: 0 !important;
-  padding: 0 !important;
-}
-
-#website_cookies_bar > .modal.o_cookies_discrete .row{
-  align-items: center !important;
-  background: transparent !important;
-  background-image: none !important;
-  border: 0 !important;
-  box-shadow: none !important;
-  display: flex !important;
-  flex-wrap: wrap !important;
-  gap: 0.75rem 1rem !important;
-  margin: 0 !important;
-  outline: 0 !important;
-}
-
-#website_cookies_bar > .modal.o_cookies_discrete [class*="col-"]{
-  background: transparent !important;
-  background-image: none !important;
-  border: 0 !important;
-  box-shadow: none !important;
-  outline: 0 !important;
-  padding: 0 !important;
-}
-
-#website_cookies_bar > .modal.o_cookies_discrete .pt16,
-#website_cookies_bar > .modal.o_cookies_discrete .pb16{
-  padding-top: 0 !important;
-  padding-bottom: 0 !important;
-}
-
-#website_cookies_bar::before,
-#website_cookies_bar::after,
-#website_cookies_bar > .modal.o_cookies_discrete::before,
-#website_cookies_bar > .modal.o_cookies_discrete::after,
-#website_cookies_bar > .modal.o_cookies_discrete .modal-dialog::before,
-#website_cookies_bar > .modal.o_cookies_discrete .modal-dialog::after,
-#website_cookies_bar > .modal.o_cookies_discrete .modal-content::before,
-#website_cookies_bar > .modal.o_cookies_discrete .modal-content::after,
-#website_cookies_bar > .modal.o_cookies_discrete .modal-content > section::before,
-#website_cookies_bar > .modal.o_cookies_discrete .modal-content > section::after{
-  background: transparent !important;
-  border: 0 !important;
-  box-shadow: none !important;
-  content: none !important;
-  outline: 0 !important;
-}
-
-#website_cookies_bar > .modal.o_cookies_discrete .col-lg-8{
-  flex: 1 1 28rem !important;
-  max-width: none !important;
-}
-
-#website_cookies_bar > .modal.o_cookies_discrete .col-lg-4{
-  align-items: center !important;
-  display: flex !important;
-  flex: 0 1 auto !important;
-  gap: 0.75rem !important;
-  justify-content: flex-end !important;
-  max-width: none !important;
-  text-align: right !important;
-}
-
-/* Safety: if Bootstrap modal-open class gets applied, don't scroll-lock the page */
-body.modal-open,
-body[style*="overflow: hidden"]{
-  overflow: auto !important;
-  padding-right: 0 !important;
-}
-
-/* Ensure Odoo close state actually removes the bar */
-#website_cookies_bar.d-none{
-  display: none !important;
-  visibility: hidden !important;
-  opacity: 0 !important;
-  pointer-events: none !important;
-}
-
-/* Cookie bar typography + link color */
-#website_cookies_bar,
-#website_cookies_bar *{
-  font-family: Arial, Helvetica, sans-serif !important;
-}
-#website_cookies_bar p{
-  margin: 0 !important;
-  color: rgba(255,255,255,.88) !important;
-}
-#website_cookies_bar a{
-  color: #f59e0b !important;
-  background: transparent !important;
-  border: 0 !important;
-  box-shadow: none !important;
-  text-decoration: none !important;
-}
-#website_cookies_bar a:hover{ text-decoration: underline !important; }
-
-#website_cookies_bar .o_cookies_bar_text_policy,
-#website_cookies_bar .o_cookies_bar_text_policy:link,
-#website_cookies_bar .o_cookies_bar_text_policy:visited,
-#website_cookies_bar .o_cookies_bar_text_policy:hover,
-#website_cookies_bar .o_cookies_bar_text_policy:focus,
-#website_cookies_bar .o_cookies_bar_text_policy:focus-visible,
-#website_cookies_bar .o_cookies_bar_text_policy:active{
-  --bs-btn-active-bg: transparent !important;
-  --bs-btn-active-border-color: transparent !important;
-  --bs-btn-active-color: #f59e0b !important;
-  --bs-btn-bg: transparent !important;
-  --bs-btn-border-color: transparent !important;
-  --bs-btn-border-radius: 0 !important;
-  --bs-btn-box-shadow: none !important;
-  --bs-btn-color: #f59e0b !important;
-  --bs-btn-focus-box-shadow: none !important;
-  --bs-btn-hover-bg: transparent !important;
-  --bs-btn-hover-border-color: transparent !important;
-  --bs-btn-hover-color: #f59e0b !important;
-  appearance: none !important;
-  -webkit-appearance: none !important;
-  background: transparent !important;
-  background-image: none !important;
-  border: 0 !important;
-  border-radius: 0 !important;
-  box-shadow: none !important;
-  color: #f59e0b !important;
-  display: inline !important;
-  line-height: inherit !important;
-  min-height: 0 !important;
-  outline: 0 !important;
-  padding: 0 !important;
-  text-decoration: none !important;
-  text-decoration-thickness: 1px !important;
-  text-underline-offset: 2px !important;
-  vertical-align: baseline !important;
-  white-space: normal !important;
-}
-
-#website_cookies_bar .o_cookies_bar_text_policy:hover{
-  text-decoration: underline !important;
-}
-
-/* Cookie bar buttons */
-#website_cookies_bar a[role="button"]:not(.o_cookies_bar_text_policy),
-#website_cookies_bar .btn:not(.o_cookies_bar_text_policy){
-  border-radius: 999px !important;
-  padding: 8px 14px !important;
-  font-weight: 700 !important;
-  border: 1px solid rgba(255,255,255,.14) !important;
-  background: rgba(255,255,255,.06) !important;
-  color: rgba(255,255,255,.92) !important;
-  white-space: nowrap !important;
-  text-decoration: none !important;
-}
-#website_cookies_bar #cookies-consent-essential{
-  background: rgba(255,255,255,.06) !important;
-  border-color: rgba(255,255,255,.16) !important;
-  color: rgba(255,255,255,.92) !important;
-}
-#website_cookies_bar #cookies-consent-all{
-  background: #f59e0b !important;
-  border-color: #f59e0b !important;
-  color: #000 !important;
-}
-#website_cookies_bar #cookies-consent-all:hover{
-  background: #d97706 !important;
-  border-color: #d97706 !important;
-}
-
-/* Odoo gives the policy text link Bootstrap button classes; keep it a text link in every interaction state. */
-#website_cookies_bar a.o_cookies_bar_text_policy.btn.btn-link.btn-sm.px-0,
-#website_cookies_bar a.o_cookies_bar_text_policy.btn.btn-link.btn-sm.px-0:link,
-#website_cookies_bar a.o_cookies_bar_text_policy.btn.btn-link.btn-sm.px-0:visited,
-#website_cookies_bar a.o_cookies_bar_text_policy.btn.btn-link.btn-sm.px-0:hover,
-#website_cookies_bar a.o_cookies_bar_text_policy.btn.btn-link.btn-sm.px-0:focus,
-#website_cookies_bar a.o_cookies_bar_text_policy.btn.btn-link.btn-sm.px-0:focus-visible,
-#website_cookies_bar a.o_cookies_bar_text_policy.btn.btn-link.btn-sm.px-0:active,
-#website_cookies_bar a.o_cookies_bar_text_policy.btn.btn-link.btn-sm.px-0.active,
-#website_cookies_bar a.o_cookies_bar_text_policy.btn.btn-link.btn-sm.px-0.focus{
-  background: transparent !important;
-  background-image: none !important;
-  border: 0 !important;
-  border-color: transparent !important;
-  border-radius: 0 !important;
-  box-shadow: none !important;
-  color: #f59e0b !important;
-  display: inline !important;
-  font-size: inherit !important;
-  line-height: inherit !important;
-  margin: 0 !important;
-  min-height: 0 !important;
-  min-width: 0 !important;
-  outline: 0 !important;
-  padding: 0 !important;
-  text-decoration: none !important;
-  vertical-align: baseline !important;
-  white-space: normal !important;
-  width: auto !important;
-}
-
-#website_cookies_bar a.o_cookies_bar_text_policy.btn.btn-link.btn-sm.px-0:hover{
-  text-decoration: underline !important;
-}
-
-#website_cookies_bar a.o_cookies_bar_text_policy.btn.btn-link.btn-sm.px-0::before,
-#website_cookies_bar a.o_cookies_bar_text_policy.btn.btn-link.btn-sm.px-0::after{
-  background: transparent !important;
-  border: 0 !important;
-  box-shadow: none !important;
-  content: none !important;
-  outline: 0 !important;
-}
-
-@media (max-width: 767.98px){
-  #website_cookies_bar{
-    padding: 0 !important;
-  }
-
-  #website_cookies_bar > .modal.o_cookies_discrete .modal-content{
-    padding: 12px 14px !important;
-  }
-
-  #website_cookies_bar > .modal.o_cookies_discrete .row,
-  #website_cookies_bar > .modal.o_cookies_discrete .col-lg-4{
-    align-items: stretch !important;
-    display: flex !important;
-    flex-direction: column !important;
-  }
-
-  #website_cookies_bar > .modal.o_cookies_discrete .col-lg-8,
-  #website_cookies_bar > .modal.o_cookies_discrete .col-lg-4{
-    flex: 1 1 100% !important;
-    width: 100% !important;
-  }
-
-  #website_cookies_bar a[role="button"]:not(.o_cookies_bar_text_policy),
-  #website_cookies_bar .btn:not(.o_cookies_bar_text_policy){
-    text-align: center !important;
-    width: 100% !important;
-  }
-}
-
-
-
-/* === TFT NAV CLEAN EMBED === */
+/* === SITE CHROME: CUSTOM NAVIGATION === */
 #tft-nav {
   position: relative;
   z-index: 10000;
@@ -1429,7 +401,7 @@ body.tft-nav-open {
   }
 }
 
-/* === TFT HERO CLEAN EMBED === */
+/* === HOMEPAGE: HERO === */
 #wrapwrap .hero-section,
 .s_embed_code_embedded .hero-section,
 .hero-section {
@@ -1782,5 +754,1031 @@ body.tft-nav-open {
   .hero-card {
     right: 1rem !important;
     bottom: 1rem !important;
+  }
+}
+
+/* === HOMEPAGE: SERVICES === */
+#services {
+  position: relative !important;
+  padding: 6rem 0 !important;
+  background: #000 !important;
+}
+
+#services > div {
+  max-width: 1440px !important;
+  margin: 0 auto !important;
+  padding: 0 1.5rem !important;
+}
+
+#services .text-center {
+  margin-bottom: 4rem !important;
+  text-align: center !important;
+}
+
+#services .tft-services-eyebrow {
+  display: inline-block !important;
+  margin: 0 auto !important;
+  padding: 0.375rem 1rem !important;
+  border: 1px solid #27272a !important;
+  border-radius: 9999px !important;
+  background-color: rgba(24, 24, 27, 0.8) !important;
+  color: #fbbf24 !important;
+  font-size: 0.875rem !important;
+  font-weight: 500 !important;
+  text-align: center !important;
+}
+
+#services .tft-services-title {
+  margin-top: 1.5rem !important;
+  color: #fff !important;
+  font-size: 3rem !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.025em !important;
+  line-height: 1 !important;
+  text-align: center !important;
+}
+
+#services .tft-services-accent {
+  color: #fbbf24 !important;
+}
+
+#services .tft-services-intro {
+  max-width: 42rem !important;
+  margin: 1rem auto 0 !important;
+  color: #a1a1aa !important;
+  font-size: 1.125rem !important;
+  line-height: 1.75rem !important;
+  text-align: center !important;
+}
+
+#services .tft-services-grid {
+  display: grid !important;
+  width: 100% !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 1.5rem !important;
+}
+
+#services .tft-service-card {
+  position: relative !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  min-height: 250px !important;
+  width: 100% !important;
+  max-width: none !important;
+  padding: 2rem !important;
+  overflow: hidden !important;
+  border: 1px solid #27272a !important;
+  border-radius: 1rem !important;
+  background-color: rgba(24, 24, 24, 0.5) !important;
+  cursor: pointer !important;
+  flex: none !important;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease !important;
+}
+
+#services .tft-service-card:hover {
+  border-color: rgba(120, 53, 15, 0.5) !important;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3) !important;
+  transform: translateY(-2px) !important;
+}
+
+#services .tft-service-glow {
+  position: absolute !important;
+  top: -5rem !important;
+  right: -5rem !important;
+  width: 10rem !important;
+  height: 10rem !important;
+  border-radius: 50% !important;
+  background-color: rgba(245, 158, 11, 0.1) !important;
+  filter: blur(3rem) !important;
+  transition: background-color 0.3s ease !important;
+}
+
+#services .tft-service-card:hover .tft-service-glow {
+  background-color: rgba(245, 158, 11, 0.2) !important;
+}
+
+#services .tft-service-icon {
+  display: flex !important;
+  width: 3rem !important;
+  height: 3rem !important;
+  margin-bottom: 1.5rem !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border: 1px solid #27272a !important;
+  border-radius: 1rem !important;
+  background-color: #000 !important;
+  color: #fbbf24 !important;
+}
+
+#services .tft-service-icon-svg {
+  width: 1.5rem !important;
+  height: 1.5rem !important;
+}
+
+#services .tft-service-title {
+  margin-bottom: 0.75rem !important;
+  color: #fff !important;
+  font-size: 1.25rem !important;
+  font-weight: 700 !important;
+  text-align: left !important;
+}
+
+#services .tft-service-description {
+  margin-bottom: 1.5rem !important;
+  color: #a1a1aa !important;
+  font-size: 1rem !important;
+  text-align: left !important;
+}
+
+#services .tft-service-link {
+  display: inline-flex !important;
+  align-items: center !important;
+  color: #fbbf24 !important;
+  font-size: 0.875rem !important;
+  font-weight: 500 !important;
+  text-align: left !important;
+  text-decoration: none !important;
+  transition: color 0.3s ease !important;
+}
+
+#services .tft-service-card:hover .tft-service-link,
+#services .tft-service-link:hover {
+  color: #f59e0b !important;
+}
+
+#services .tft-service-link-icon {
+  width: 1rem !important;
+  height: 1rem !important;
+  margin-left: 0.25rem !important;
+}
+
+@media (max-width: 767px) {
+  #services {
+    padding: 6rem 0 !important;
+  }
+
+  #services .tft-services-title {
+    font-size: 2.5rem !important;
+  }
+
+  #services .tft-services-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  #services .tft-services-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+/* === HOMEPAGE: PRICING === */
+#pricing.tft-pricing-section {
+  position: relative !important;
+  overflow: hidden !important;
+  padding: 5rem 0 !important;
+  background: #000 !important;
+}
+
+#pricing .tft-pricing-bg-pattern,
+#pricing .tft-pricing-bg-gradient {
+  position: absolute !important;
+  inset: 0 !important;
+  pointer-events: none !important;
+}
+
+#pricing .tft-pricing-bg-pattern {
+  background-image: url('/placeholder.svg?height=1080&width=1920') !important;
+  background-position: center !important;
+  background-size: cover !important;
+  opacity: 0.05 !important;
+}
+
+#pricing .tft-pricing-bg-gradient {
+  background: linear-gradient(to bottom, #000, rgba(0, 0, 0, 0.95), #000) !important;
+}
+
+#pricing .tft-pricing-container {
+  position: relative !important;
+  max-width: 1440px !important;
+  margin: 0 auto !important;
+  padding: 2rem 1rem !important;
+}
+
+#pricing .tft-pricing-header {
+  margin-bottom: 3rem !important;
+  padding: 0 0.5rem !important;
+  text-align: center !important;
+}
+
+#pricing .tft-pricing-eyebrow {
+  display: inline-block !important;
+  padding: 0.375rem 1rem !important;
+  border: 1px solid #27272a !important;
+  border-radius: 9999px !important;
+  background-color: #18181b !important;
+  color: #fbbf24 !important;
+  font-size: 0.875rem !important;
+  font-weight: 500 !important;
+}
+
+#pricing .tft-pricing-title {
+  margin-top: 1.5rem !important;
+  color: #fff !important;
+  font-size: 3rem !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.025em !important;
+  line-height: 1 !important;
+  text-align: center !important;
+}
+
+#pricing .tft-pricing-accent {
+  color: #fbbf24 !important;
+}
+
+#pricing .tft-pricing-intro {
+  margin-top: 1rem !important;
+  color: #a1a1aa !important;
+  font-size: 1.125rem !important;
+  line-height: 1.75rem !important;
+  text-align: center !important;
+}
+
+#pricing .tft-pricing-grid {
+  display: grid !important;
+  width: 100% !important;
+  max-width: 1440px !important;
+  margin: 0 auto !important;
+  padding: 0 1rem !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 1.5rem !important;
+}
+
+#pricing .tft-pricing-card {
+  position: relative !important;
+  display: flex !important;
+  min-height: 400px !important;
+  width: 100% !important;
+  max-width: none !important;
+  flex: none !important;
+  flex-direction: column !important;
+  overflow: hidden !important;
+  padding: 2rem !important;
+  border: 1px solid #27272a !important;
+  border-radius: 1rem !important;
+  background-color: rgba(24, 24, 24, 0.5) !important;
+  color: #fff !important;
+  transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+#pricing .tft-pricing-card:hover {
+  border-color: rgba(120, 53, 15, 0.5) !important;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3) !important;
+  transform: translateY(-2px) !important;
+}
+
+#pricing .tft-pricing-card-featured {
+  border-color: rgba(120, 53, 15, 0.3) !important;
+}
+
+#pricing .tft-pricing-card-featured:hover {
+  border-color: rgba(245, 158, 11, 0.3) !important;
+}
+
+#pricing .tft-pricing-glow {
+  position: absolute !important;
+  top: -5rem !important;
+  right: -5rem !important;
+  width: 10rem !important;
+  height: 10rem !important;
+  border-radius: 50% !important;
+  background-color: rgba(245, 158, 11, 0.1) !important;
+  filter: blur(3rem) !important;
+  transition: background-color 0.3s ease !important;
+}
+
+#pricing .tft-pricing-card-featured .tft-pricing-glow,
+#pricing .tft-pricing-card:hover .tft-pricing-glow {
+  background-color: rgba(245, 158, 11, 0.2) !important;
+}
+
+#pricing .tft-pricing-badge {
+  position: absolute !important;
+  top: -0.25rem !important;
+  right: -0.25rem !important;
+  padding: 0.25rem 0.75rem !important;
+  border-top-right-radius: 0.75rem !important;
+  border-bottom-left-radius: 0.75rem !important;
+  background-color: #f59e0b !important;
+  color: #000 !important;
+  font-size: 0.75rem !important;
+  font-weight: 500 !important;
+}
+
+#pricing .tft-pricing-card-header {
+  margin-bottom: 1.5rem !important;
+}
+
+#pricing .tft-pricing-card-title {
+  margin: 0 !important;
+  color: #fff !important;
+  font-size: 1.125rem !important;
+  font-weight: 600 !important;
+  line-height: 1.75rem !important;
+  text-align: left !important;
+}
+
+#pricing .tft-pricing-rate {
+  display: flex !important;
+  align-items: baseline !important;
+  margin-top: 1rem !important;
+}
+
+#pricing .tft-pricing-price {
+  color: #fff !important;
+  font-size: 2.25rem !important;
+  font-weight: 700 !important;
+  line-height: 2.5rem !important;
+}
+
+#pricing .tft-pricing-unit {
+  margin-left: 0.25rem !important;
+  color: #a1a1aa !important;
+  font-size: 1rem !important;
+  line-height: 1.5rem !important;
+}
+
+#pricing .tft-pricing-subtitle {
+  display: block !important;
+  min-height: 40px !important;
+  margin: 0.5rem 0 0 !important;
+  color: #a1a1aa !important;
+  font-size: 0.875rem !important;
+  line-height: 1.25rem !important;
+  text-align: left !important;
+}
+
+#pricing .tft-pricing-features {
+  flex-grow: 1 !important;
+  margin: 1.5rem 0 2rem !important;
+  padding: 0 !important;
+  list-style: none !important;
+}
+
+#pricing .tft-pricing-features li {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.75rem !important;
+  margin-bottom: 1rem !important;
+  color: #fff !important;
+  font-size: 0.875rem !important;
+  line-height: 1.25rem !important;
+  list-style: none !important;
+}
+
+#pricing .tft-pricing-dot {
+  display: block !important;
+  width: 0.375rem !important;
+  height: 0.375rem !important;
+  flex-shrink: 0 !important;
+  border-radius: 50% !important;
+  background-color: #fbbf24 !important;
+}
+
+#pricing .tft-pricing-button {
+  display: inline-flex !important;
+  width: 100% !important;
+  height: 2.5rem !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0.5rem !important;
+  padding: 0.5rem 1rem !important;
+  border: none !important;
+  border-radius: 0.375rem !important;
+  font-size: 0.875rem !important;
+  font-weight: 500 !important;
+  text-align: center !important;
+  text-decoration: none !important;
+  transition: background-color 0.3s ease, color 0.3s ease !important;
+}
+
+#pricing .tft-pricing-button-secondary {
+  background-color: #27272a !important;
+  color: #fff !important;
+}
+
+#pricing .tft-pricing-button-secondary:hover {
+  background-color: #f59e0b !important;
+  color: #000 !important;
+}
+
+#pricing .tft-pricing-button-primary {
+  background-color: #f59e0b !important;
+  color: #000 !important;
+}
+
+#pricing .tft-pricing-button-primary:hover {
+  background-color: #fbbf24 !important;
+  color: #000 !important;
+}
+
+@media (max-width: 767px) {
+  #pricing .tft-pricing-title {
+    font-size: 2.5rem !important;
+  }
+
+  #pricing .tft-pricing-grid {
+    grid-template-columns: 1fr !important;
+    max-width: 100% !important;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  #pricing .tft-pricing-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+/* === SITE CHROME: CUSTOM FOOTER ===
+   Footer rules are scoped to the TFT embed. Dividers use normal document width to avoid mobile overflow.
+*/
+.tft-site-footer {
+  background-color: #000 !important;
+  border: 0 !important;
+  color: #fff !important;
+  padding: 0 0 3rem !important;
+  text-align: left !important;
+}
+
+.tft-site-footer,
+.tft-site-footer * {
+  box-sizing: border-box !important;
+}
+
+.tft-footer-rule {
+  border-top: 1px solid #27272a !important;
+  height: 1px !important;
+  margin: 0 0 3rem !important;
+  width: 100% !important;
+}
+
+.tft-footer-shell {
+  border: 0 !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  max-width: 1200px !important;
+  padding-left: 1.5rem !important;
+  padding-right: 1.5rem !important;
+  width: 100% !important;
+}
+
+.tft-footer-grid {
+  display: grid !important;
+  gap: 2rem !important;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr) minmax(0, 1.25fr) minmax(0, 0.8fr) minmax(0, 1.35fr) !important;
+}
+
+.tft-footer-column {
+  display: block !important;
+  min-width: 0 !important;
+  text-align: left !important;
+}
+
+.tft-footer-brand-row {
+  align-items: center !important;
+  display: flex !important;
+  gap: 0.5rem !important;
+  margin-bottom: 1rem !important;
+}
+
+.tft-footer-logo {
+  color: transparent !important;
+  flex: 0 0 auto !important;
+  height: 30px !important;
+  width: 30px !important;
+}
+
+.tft-footer-brand-name {
+  color: #fff !important;
+  font-size: 1.125rem !important;
+  font-weight: 700 !important;
+  line-height: 1.5rem !important;
+}
+
+.tft-footer-description {
+  color: #a1a1aa !important;
+  font-size: 0.875rem !important;
+  line-height: 1.25rem !important;
+  margin: 0 !important;
+  text-align: left !important;
+}
+
+.tft-footer-heading {
+  color: #fff !important;
+  font-size: 0.875rem !important;
+  font-weight: 500 !important;
+  line-height: 1.25rem !important;
+  margin: 0 0 1rem !important;
+  text-align: left !important;
+}
+
+.tft-footer-list {
+  list-style: none !important;
+  margin: 0 !important;
+  padding-left: 0 !important;
+}
+
+.tft-footer-list li {
+  margin-bottom: 0.5rem !important;
+}
+
+.tft-footer-link {
+  color: #a1a1aa !important;
+  display: inline !important;
+  font-size: 0.875rem !important;
+  line-height: 1.25rem !important;
+  text-align: left !important;
+  text-decoration: none !important;
+  transition: color 0.3s ease !important;
+}
+
+.tft-footer-link:hover {
+  color: #fbbf24 !important;
+}
+
+.tft-footer-contact-group {
+  margin-bottom: 2rem !important;
+}
+
+.tft-footer-contact-item {
+  align-items: flex-start !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.25rem !important;
+  margin-bottom: 1rem !important;
+}
+
+.tft-footer-contact-item:last-child {
+  margin-bottom: 0 !important;
+}
+
+.tft-footer-contact-icon {
+  color: #71717a !important;
+  display: block !important;
+  flex: none !important;
+  font-size: 0.6875rem !important;
+  font-weight: 600 !important;
+  height: auto !important;
+  letter-spacing: 0.08em !important;
+  line-height: 1rem !important;
+  margin: 0 !important;
+  text-transform: uppercase !important;
+  width: auto !important;
+}
+
+.tft-footer-contact-icon svg {
+  display: none !important;
+}
+
+.tft-site-footer .footer-address,
+.tft-site-footer .footer-phone-link,
+.tft-site-footer .footer-email-link {
+  font-size: 0.875rem !important;
+  line-height: 1.5rem !important;
+  margin: 0 !important;
+  text-align: left !important;
+}
+
+.tft-site-footer .footer-address {
+  color: #a1a1aa !important;
+}
+
+.tft-site-footer .footer-phone-link,
+.tft-site-footer .footer-email-link {
+  color: #fbbf24 !important;
+  text-decoration: none !important;
+  transition: color 0.3s ease !important;
+}
+
+.tft-site-footer .footer-phone-link:hover,
+.tft-site-footer .footer-email-link:hover {
+  color: #fcd34d !important;
+}
+
+.tft-footer-email-wrap {
+  flex: 1 1 auto !important;
+  min-width: 0 !important;
+  overflow: visible !important;
+}
+
+.tft-site-footer .footer-email-link {
+  font-size: 0.75rem !important;
+  overflow-wrap: normal !important;
+  white-space: nowrap !important;
+  word-break: normal !important;
+}
+
+.tft-footer-social {
+  margin-top: 1.5rem !important;
+}
+
+.tft-footer-social-heading {
+  color: #fff !important;
+  font-size: 0.875rem !important;
+  font-weight: 500 !important;
+  line-height: 1.25rem !important;
+  margin: 0 0 0.75rem !important;
+  text-align: left !important;
+}
+
+.tft-footer-social-list {
+  align-items: center !important;
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 0.5rem !important;
+}
+
+.tft-footer-social-link {
+  align-items: center !important;
+  border: 1px solid #27272a !important;
+  border-radius: 4px !important;
+  color: #a1a1aa !important;
+  cursor: pointer !important;
+  display: inline-flex !important;
+  font-size: 0.75rem !important;
+  font-weight: 500 !important;
+  height: 2rem !important;
+  justify-content: center !important;
+  line-height: 1 !important;
+  padding: 0 0.625rem !important;
+  text-decoration: none !important;
+  transition: border-color 0.3s ease, color 0.3s ease !important;
+  width: auto !important;
+}
+
+.tft-footer-social-link:hover {
+  border-color: #ffc300 !important;
+  color: #ffc300 !important;
+}
+
+.tft-footer-social-link svg {
+  display: none !important;
+}
+
+.tft-footer-copyright {
+  background-color: #000 !important;
+  border-top: 1px solid #27272a !important;
+  padding-bottom: 2rem !important;
+  padding-top: 2rem !important;
+  text-align: center !important;
+  width: 100% !important;
+}
+
+.tft-footer-copyright-shell {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  max-width: 1200px !important;
+  padding-left: 1.5rem !important;
+  padding-right: 1.5rem !important;
+  width: 100% !important;
+}
+
+.tft-footer-copyright-text {
+  color: #71717a !important;
+  font-size: 0.875rem !important;
+  line-height: 1.25rem !important;
+  margin: 0 !important;
+  text-align: center !important;
+ }
+
+/* === ODOO SYSTEM UI: COOKIE BAR === */
+#website_cookies_bar{
+  position: fixed !important;
+  left: 0 !important;
+  right: 0 !important;
+  top: unset !important;
+  bottom: 0 !important;
+  inset: auto 0 0 0 !important;
+  z-index: 10050 !important;
+
+  display: block !important;
+  height: fit-content !important;
+  min-height: 56px !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+
+  background: transparent !important;
+  border-top: 0 !important;
+  box-shadow: none !important;
+  outline: 0 !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+/* Odoo may set inline positioning; keep the bar pinned to the bottom. */
+#website_cookies_bar[style]{
+  top: auto !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+}
+
+/* Keep the live cookie bar visible even when Odoo carries editor visibility classes. */
+body:not(.o_edit_mode) #website_cookies_bar.o_snippet_invisible{
+  visibility: visible !important;
+  opacity: 1 !important;
+  height: auto !important;
+  pointer-events: auto !important;
+}
+
+/* Preserve Odoo modal mechanics while restyling the inner modal as a bottom bar. */
+#website_cookies_bar > .modal.o_cookies_discrete{
+  position: fixed !important;
+  inset: auto 0 0 0 !important;
+  width: 100% !important;
+  height: auto !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  background: transparent !important;
+  pointer-events: none !important;
+}
+#website_cookies_bar > .modal.o_cookies_discrete .modal-dialog{
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  pointer-events: auto !important;
+}
+#website_cookies_bar > .modal.o_cookies_discrete .modal-content{
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: #0f0f0f !important;
+  background-clip: border-box !important;
+  box-shadow: none !important;
+  display: block !important;
+  overflow: hidden !important;
+  padding: 14px 18px !important;
+}
+
+#website_cookies_bar > .modal.o_cookies_discrete .modal-content > section,
+#website_cookies_bar > .modal.o_cookies_discrete .modal-content .o_cc,
+#website_cookies_bar > .modal.o_cookies_discrete .modal-content .o_colored_level{
+  background: transparent !important;
+  background-image: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  color: rgba(255,255,255,.88) !important;
+  margin: 0 !important;
+  outline: 0 !important;
+  padding: 0 !important;
+}
+
+#website_cookies_bar > .modal.o_cookies_discrete .container{
+  background: transparent !important;
+  background-image: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  max-width: 1200px !important;
+  outline: 0 !important;
+  padding: 0 !important;
+}
+
+#website_cookies_bar > .modal.o_cookies_discrete .row{
+  align-items: center !important;
+  background: transparent !important;
+  background-image: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 0.75rem 1rem !important;
+  margin: 0 !important;
+  outline: 0 !important;
+}
+
+#website_cookies_bar > .modal.o_cookies_discrete [class*="col-"]{
+  background: transparent !important;
+  background-image: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  outline: 0 !important;
+  padding: 0 !important;
+}
+
+#website_cookies_bar > .modal.o_cookies_discrete .pt16,
+#website_cookies_bar > .modal.o_cookies_discrete .pb16{
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+#website_cookies_bar::before,
+#website_cookies_bar::after,
+#website_cookies_bar > .modal.o_cookies_discrete::before,
+#website_cookies_bar > .modal.o_cookies_discrete::after,
+#website_cookies_bar > .modal.o_cookies_discrete .modal-dialog::before,
+#website_cookies_bar > .modal.o_cookies_discrete .modal-dialog::after,
+#website_cookies_bar > .modal.o_cookies_discrete .modal-content::before,
+#website_cookies_bar > .modal.o_cookies_discrete .modal-content::after,
+#website_cookies_bar > .modal.o_cookies_discrete .modal-content > section::before,
+#website_cookies_bar > .modal.o_cookies_discrete .modal-content > section::after{
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  content: none !important;
+  outline: 0 !important;
+}
+
+#website_cookies_bar > .modal.o_cookies_discrete .col-lg-8{
+  flex: 1 1 28rem !important;
+  max-width: none !important;
+}
+
+#website_cookies_bar > .modal.o_cookies_discrete .col-lg-4{
+  align-items: center !important;
+  display: flex !important;
+  flex: 0 1 auto !important;
+  gap: 0.75rem !important;
+  justify-content: flex-end !important;
+  max-width: none !important;
+  text-align: right !important;
+}
+
+/* Prevent Bootstrap modal state from scroll-locking the page behind the cookie bar. */
+body.modal-open,
+body[style*="overflow: hidden"]{
+  overflow: auto !important;
+  padding-right: 0 !important;
+}
+
+/* Respect the dismissed/closed state. */
+#website_cookies_bar.d-none{
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* Cookie bar text and links. */
+#website_cookies_bar,
+#website_cookies_bar *{
+  font-family: Arial, Helvetica, sans-serif !important;
+}
+#website_cookies_bar p{
+  margin: 0 !important;
+  color: rgba(255,255,255,.88) !important;
+}
+#website_cookies_bar a{
+  color: #f59e0b !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  text-decoration: none !important;
+}
+#website_cookies_bar a:hover{ text-decoration: underline !important; }
+
+#website_cookies_bar .o_cookies_bar_text_policy,
+#website_cookies_bar .o_cookies_bar_text_policy:link,
+#website_cookies_bar .o_cookies_bar_text_policy:visited,
+#website_cookies_bar .o_cookies_bar_text_policy:hover,
+#website_cookies_bar .o_cookies_bar_text_policy:focus,
+#website_cookies_bar .o_cookies_bar_text_policy:focus-visible,
+#website_cookies_bar .o_cookies_bar_text_policy:active{
+  --bs-btn-active-bg: transparent !important;
+  --bs-btn-active-border-color: transparent !important;
+  --bs-btn-active-color: #f59e0b !important;
+  --bs-btn-bg: transparent !important;
+  --bs-btn-border-color: transparent !important;
+  --bs-btn-border-radius: 0 !important;
+  --bs-btn-box-shadow: none !important;
+  --bs-btn-color: #f59e0b !important;
+  --bs-btn-focus-box-shadow: none !important;
+  --bs-btn-hover-bg: transparent !important;
+  --bs-btn-hover-border-color: transparent !important;
+  --bs-btn-hover-color: #f59e0b !important;
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  background: transparent !important;
+  background-image: none !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  color: #f59e0b !important;
+  display: inline !important;
+  line-height: inherit !important;
+  min-height: 0 !important;
+  outline: 0 !important;
+  padding: 0 !important;
+  text-decoration: none !important;
+  text-decoration-thickness: 1px !important;
+  text-underline-offset: 2px !important;
+  vertical-align: baseline !important;
+  white-space: normal !important;
+}
+
+#website_cookies_bar .o_cookies_bar_text_policy:hover{
+  text-decoration: underline !important;
+}
+
+/* Cookie consent action buttons. */
+#website_cookies_bar a[role="button"]:not(.o_cookies_bar_text_policy),
+#website_cookies_bar .btn:not(.o_cookies_bar_text_policy){
+  border-radius: 999px !important;
+  padding: 8px 14px !important;
+  font-weight: 700 !important;
+  border: 1px solid rgba(255,255,255,.14) !important;
+  background: rgba(255,255,255,.06) !important;
+  color: rgba(255,255,255,.92) !important;
+  white-space: nowrap !important;
+  text-decoration: none !important;
+}
+#website_cookies_bar #cookies-consent-essential{
+  background: rgba(255,255,255,.06) !important;
+  border-color: rgba(255,255,255,.16) !important;
+  color: rgba(255,255,255,.92) !important;
+}
+#website_cookies_bar #cookies-consent-all{
+  background: #f59e0b !important;
+  border-color: #f59e0b !important;
+  color: #000 !important;
+}
+#website_cookies_bar #cookies-consent-all:hover{
+  background: #d97706 !important;
+  border-color: #d97706 !important;
+}
+
+/* Odoo gives the policy text link Bootstrap button classes; keep it a text link in every interaction state. */
+#website_cookies_bar a.o_cookies_bar_text_policy.btn.btn-link.btn-sm.px-0,
+#website_cookies_bar a.o_cookies_bar_text_policy.btn.btn-link.btn-sm.px-0:link,
+#website_cookies_bar a.o_cookies_bar_text_policy.btn.btn-link.btn-sm.px-0:visited,
+#website_cookies_bar a.o_cookies_bar_text_policy.btn.btn-link.btn-sm.px-0:hover,
+#website_cookies_bar a.o_cookies_bar_text_policy.btn.btn-link.btn-sm.px-0:focus,
+#website_cookies_bar a.o_cookies_bar_text_policy.btn.btn-link.btn-sm.px-0:focus-visible,
+#website_cookies_bar a.o_cookies_bar_text_policy.btn.btn-link.btn-sm.px-0:active,
+#website_cookies_bar a.o_cookies_bar_text_policy.btn.btn-link.btn-sm.px-0.active,
+#website_cookies_bar a.o_cookies_bar_text_policy.btn.btn-link.btn-sm.px-0.focus{
+  background: transparent !important;
+  background-image: none !important;
+  border: 0 !important;
+  border-color: transparent !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  color: #f59e0b !important;
+  display: inline !important;
+  font-size: inherit !important;
+  line-height: inherit !important;
+  margin: 0 !important;
+  min-height: 0 !important;
+  min-width: 0 !important;
+  outline: 0 !important;
+  padding: 0 !important;
+  text-decoration: none !important;
+  vertical-align: baseline !important;
+  white-space: normal !important;
+  width: auto !important;
+}
+
+#website_cookies_bar a.o_cookies_bar_text_policy.btn.btn-link.btn-sm.px-0:hover{
+  text-decoration: underline !important;
+}
+
+#website_cookies_bar a.o_cookies_bar_text_policy.btn.btn-link.btn-sm.px-0::before,
+#website_cookies_bar a.o_cookies_bar_text_policy.btn.btn-link.btn-sm.px-0::after{
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  content: none !important;
+  outline: 0 !important;
+}
+
+@media (max-width: 767.98px){
+  #website_cookies_bar{
+    padding: 0 !important;
+  }
+
+  #website_cookies_bar > .modal.o_cookies_discrete .modal-content{
+    padding: 12px 14px !important;
+  }
+
+  #website_cookies_bar > .modal.o_cookies_discrete .row,
+  #website_cookies_bar > .modal.o_cookies_discrete .col-lg-4{
+    align-items: stretch !important;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  #website_cookies_bar > .modal.o_cookies_discrete .col-lg-8,
+  #website_cookies_bar > .modal.o_cookies_discrete .col-lg-4{
+    flex: 1 1 100% !important;
+    width: 100% !important;
+  }
+
+  #website_cookies_bar a[role="button"]:not(.o_cookies_bar_text_policy),
+  #website_cookies_bar .btn:not(.o_cookies_bar_text_policy){
+    text-align: center !important;
+    width: 100% !important;
   }
 }
