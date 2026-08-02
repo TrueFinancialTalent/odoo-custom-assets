@@ -1565,6 +1565,49 @@ body.tft-nav-open {
   text-align: center !important;
  }
 
+@media (max-width: 1023px) {
+  .tft-footer-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  .tft-footer-column:first-child,
+  .tft-footer-column:last-child {
+    grid-column: 1 / -1 !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .tft-site-footer {
+    padding-bottom: 2rem !important;
+  }
+
+  .tft-footer-rule {
+    margin-bottom: 2rem !important;
+  }
+
+  .tft-footer-shell,
+  .tft-footer-copyright-shell {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+
+  .tft-footer-grid {
+    gap: 1.75rem !important;
+    grid-template-columns: 1fr !important;
+  }
+
+  .tft-footer-column:first-child,
+  .tft-footer-column:last-child {
+    grid-column: auto !important;
+  }
+
+  .tft-site-footer .footer-email-link {
+    overflow-wrap: anywhere !important;
+    white-space: normal !important;
+    word-break: normal !important;
+  }
+}
+
 /* === ODOO SYSTEM UI: COOKIE BAR === */
 #website_cookies_bar{
   position: fixed !important;

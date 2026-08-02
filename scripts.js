@@ -84,3 +84,23 @@
   setTimeout(wire, 1500);
   window.addEventListener("load", wire, { once: true });
 })();
+
+// Normalize footer links that still came across from the original static mockup as placeholders.
+(function wireTftFooterLinks(){
+  "use strict";
+
+  function wire() {
+    document.querySelectorAll('.tft-site-footer a.tft-footer-link').forEach(function(link){
+      if (link.textContent.trim().toLowerCase() === 'cookie policy') {
+        link.setAttribute('href', '/cookie-policy');
+      }
+    });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", wire, { once: true });
+  } else {
+    wire();
+  }
+  window.addEventListener("load", wire, { once: true });
+})();
