@@ -61,35 +61,22 @@ main:not(.o_edit_mode) {
 
 /* === ODOO CHROME RESET === */
 /* Hide stock Odoo navigation/footer chrome so the custom TFT chrome is the only visible site frame. */
-#wrapwrap header#top,
-#wrapwrap header.o_top_fixed_element,
+#wrapwrap > header#top,
+#wrapwrap > header.o_top_fixed_element,
+#wrapwrap > footer#footer,
 #wrapwrap .o_main_navbar,
 #wrapwrap .o_header_disappears,
 #wrapwrap .o_header_sales_three_top,
+#wrapwrap .o_header_mobile,
+#wrapwrap .o_header_mobile_buttons_wrap,
 #wrapwrap nav.o_colored_level,
 #wrapwrap #o_main_nav,
-#wrapwrap footer#footer,
-header#top,
-header.o_top_fixed_element,
-.o_main_navbar,
-.o_header_disappears,
-.o_header_sales_three_top,
-nav.o_colored_level,
-#o_main_nav,
-footer#footer,
-.o_header_mobile,
-.o_header_mobile_buttons_wrap,
-.top_menu,
-#top_menu,
-.o_wsale_my_cart,
-.o_wsale_my_wish,
-.o_no_autohide_item,
-.navbar,
-.navbar-brand,
-.navbar-nav,
-.navbar-toggler,
-.offcanvas,
-#top_menu_collapse_mobile {
+#wrapwrap #top_menu,
+#wrapwrap .top_menu,
+#wrapwrap .o_wsale_my_cart,
+#wrapwrap .o_wsale_my_wish,
+#wrapwrap .o_no_autohide_item,
+#wrapwrap #top_menu_collapse_mobile {
   display: none !important;
   visibility: hidden !important;
   height: 0 !important;
@@ -398,6 +385,132 @@ body.tft-nav-open {
   #tft-nav .tft-desktop-links,
   #tft-nav .tft-cta {
     display: none !important;
+  }
+}
+
+/* === INNER PAGES: LEGAL / POLICY TEMPLATE === */
+.tft-inner-page {
+  background: #000 !important;
+  color: #f4f4f5 !important;
+  padding: 8rem 0 5rem !important;
+}
+
+.tft-inner-page,
+.tft-inner-page * {
+  box-sizing: border-box !important;
+}
+
+.tft-inner-shell {
+  margin: 0 auto !important;
+  max-width: 920px !important;
+  padding: 0 1.5rem !important;
+  width: 100% !important;
+}
+
+.tft-inner-kicker {
+  color: #f59e0b !important;
+  font-size: 0.75rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.12em !important;
+  line-height: 1rem !important;
+  margin: 0 0 0.75rem !important;
+  text-transform: uppercase !important;
+}
+
+.tft-inner-title {
+  color: #fff !important;
+  font-size: 3rem !important;
+  font-weight: 800 !important;
+  line-height: 1.08 !important;
+  margin: 0 0 1.25rem !important;
+}
+
+.tft-inner-summary {
+  color: #d4d4d8 !important;
+  font-size: 1.125rem !important;
+  line-height: 1.7 !important;
+  margin: 0 0 2.5rem !important;
+  max-width: 760px !important;
+}
+
+.tft-legal-copy {
+  color: #d4d4d8 !important;
+  font-size: 1rem !important;
+  line-height: 1.75 !important;
+}
+
+.tft-legal-copy p {
+  margin: 0 0 1.25rem !important;
+}
+
+.tft-legal-copy a {
+  color: #f59e0b !important;
+  text-decoration: none !important;
+}
+
+.tft-legal-copy a:hover {
+  color: #fbbf24 !important;
+  text-decoration: underline !important;
+  text-underline-offset: 3px !important;
+}
+
+.tft-legal-table-wrap {
+  margin: 2rem 0 !important;
+  overflow-x: auto !important;
+  -webkit-overflow-scrolling: touch !important;
+}
+
+.tft-legal-table {
+  border-collapse: collapse !important;
+  color: #e4e4e7 !important;
+  min-width: 720px !important;
+  text-align: left !important;
+  width: 100% !important;
+}
+
+.tft-legal-table th,
+.tft-legal-table td {
+  border: 1px solid #27272a !important;
+  padding: 1rem !important;
+  text-align: left !important;
+  vertical-align: top !important;
+}
+
+.tft-legal-table th {
+  background: #18181b !important;
+  color: #fff !important;
+  font-size: 0.8125rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.04em !important;
+  line-height: 1.35 !important;
+  text-transform: uppercase !important;
+}
+
+.tft-legal-table td {
+  background: #09090b !important;
+  font-size: 0.9375rem !important;
+  line-height: 1.6 !important;
+}
+
+.tft-legal-table p {
+  margin: 0 0 0.75rem !important;
+}
+
+.tft-legal-table p:last-child {
+  margin-bottom: 0 !important;
+}
+
+@media (max-width: 767.98px) {
+  .tft-inner-page {
+    padding: 6.5rem 0 4rem !important;
+  }
+
+  .tft-inner-title {
+    font-size: 2.25rem !important;
+  }
+
+  .tft-inner-summary {
+    font-size: 1rem !important;
   }
 }
 
@@ -1605,13 +1718,6 @@ body:not(.o_edit_mode) #website_cookies_bar.o_snippet_invisible{
   justify-content: flex-end !important;
   max-width: none !important;
   text-align: right !important;
-}
-
-/* Prevent Bootstrap modal state from scroll-locking the page behind the cookie bar. */
-body.modal-open,
-body[style*="overflow: hidden"]{
-  overflow: auto !important;
-  padding-right: 0 !important;
 }
 
 /* Respect the dismissed/closed state. */
