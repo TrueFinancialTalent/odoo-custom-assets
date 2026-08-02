@@ -85,6 +85,26 @@
   window.addEventListener("load", wire, { once: true });
 })();
 
+// Normalize navigation links that still came across from the original static mockup as placeholders.
+(function wireTftNavLinks(){
+  "use strict";
+
+  function wire() {
+    document.querySelectorAll('#tft-nav a.tft-link').forEach(function(link){
+      if (link.textContent.trim().toLowerCase() === 'home') {
+        link.setAttribute('href', '/');
+      }
+    });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", wire, { once: true });
+  } else {
+    wire();
+  }
+  window.addEventListener("load", wire, { once: true });
+})();
+
 // Normalize footer links that still came across from the original static mockup as placeholders.
 (function wireTftFooterLinks(){
   "use strict";
