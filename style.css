@@ -626,6 +626,9 @@ body.tft-nav-open {
   align-items: center !important;
 }
 
+#wrapwrap .hero-button,
+.s_embed_code_embedded .hero-button,
+.tft-legal-copy a.hero-button,
 .hero-button {
   display: inline-flex !important;
   align-items: center !important;
@@ -646,6 +649,9 @@ body.tft-nav-open {
   white-space: nowrap !important;
 }
 
+#wrapwrap .hero-button:hover,
+.s_embed_code_embedded .hero-button:hover,
+.tft-legal-copy a.hero-button:hover,
 .hero-button:hover {
   background-color: #d97706 !important;
   box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3) !important;
