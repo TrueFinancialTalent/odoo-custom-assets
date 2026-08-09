@@ -1672,15 +1672,29 @@ body.tft-nav-open {
   color: #fff !important;
 }
 
-#wrapwrap .oe_website_login_container a:not(.btn) {
+#wrapwrap .oe_website_login_container a:not(.btn),
+#wrapwrap .oe_website_login_container .btn-link,
+#wrapwrap .oe_website_login_container .btn.btn-link {
   color: #f59e0b !important;
   text-decoration: none !important;
 }
 
 #wrapwrap .oe_website_login_container a:not(.btn):hover,
-#wrapwrap .oe_website_login_container a:not(.btn):focus {
+#wrapwrap .oe_website_login_container a:not(.btn):focus,
+#wrapwrap .oe_website_login_container .btn-link:hover,
+#wrapwrap .oe_website_login_container .btn-link:focus,
+#wrapwrap .oe_website_login_container .btn.btn-link:hover,
+#wrapwrap .oe_website_login_container .btn.btn-link:focus {
   color: #fbbf24 !important;
   text-decoration: underline !important;
+}
+
+#wrapwrap .oe_website_login_container .btn-link:disabled,
+#wrapwrap .oe_website_login_container .btn-link.disabled,
+#wrapwrap .oe_website_login_container .btn.btn-link:disabled,
+#wrapwrap .oe_website_login_container .btn.btn-link.disabled {
+  color: #a1a1aa !important;
+  opacity: 0.7 !important;
 }
 
 #wrapwrap .oe_website_login_container .form-control {
