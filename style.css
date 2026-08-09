@@ -1628,7 +1628,7 @@ body.tft-nav-open {
   justify-content: center !important;
   max-width: none !important;
   min-height: clamp(22rem, 46vh, 30rem) !important;
-  padding: clamp(2.75rem, 6vw, 4.5rem) 1rem clamp(4rem, 8vw, 6rem) !important;
+  padding: clamp(6.5rem, 10vw, 8rem) 1rem clamp(4rem, 8vw, 6rem) !important;
   width: 100% !important;
 }
 
@@ -1728,7 +1728,7 @@ body.tft-nav-open {
 @media (max-width: 575px) {
   #wrapwrap .oe_website_login_container {
     min-height: auto !important;
-    padding: 2rem 1rem 3rem !important;
+    padding: 7rem 1rem 3rem !important;
   }
 
   #wrapwrap .oe_website_login_container .oe_login_form {
