@@ -739,7 +739,7 @@ body.tft-nav-open {
 .hero-card {
   position: absolute !important;
   right: 0.5rem !important;
-  bottom: -0.5rem !important;
+  bottom: 3rem !important;
   z-index: 10 !important;
   width: 380px !important;
   max-width: calc(100% - 2rem) !important;
