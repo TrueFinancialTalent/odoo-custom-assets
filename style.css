@@ -1783,6 +1783,151 @@ body.tft-nav-open {
   }
 }
 
+/* === ODOO SYSTEM UI: CONTACT FORM === */
+#wrapwrap #contactus .tft-inner-shell {
+  max-width: 1040px !important;
+}
+
+#wrapwrap #contactus .s_website_form {
+  background: rgba(255, 255, 255, 0.025) !important;
+  border: 1px solid rgba(245, 158, 11, 0.28) !important;
+  border-radius: 0.5rem !important;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.4) !important;
+  margin: 2.25rem 0 0 !important;
+  padding: clamp(1.25rem, 3vw, 2rem) !important;
+}
+
+#wrapwrap #contactus .s_website_form .container {
+  max-width: none !important;
+  padding: 0 !important;
+  width: 100% !important;
+}
+
+#wrapwrap #contactus #contactus_form {
+  margin: 0 !important;
+}
+
+#wrapwrap #contactus .s_website_form_rows {
+  column-gap: 1rem !important;
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  margin: 0 !important;
+  row-gap: 1rem !important;
+}
+
+#wrapwrap #contactus .s_website_form_field,
+#wrapwrap #contactus .s_website_form_submit {
+  margin: 0 !important;
+  max-width: none !important;
+  padding: 0 !important;
+  width: auto !important;
+}
+
+#wrapwrap #contactus .s_website_form_field:nth-of-type(n+5),
+#wrapwrap #contactus .s_website_form_submit {
+  grid-column: 1 / -1 !important;
+}
+
+#wrapwrap #contactus .s_website_form_dnone {
+  display: none !important;
+}
+
+#wrapwrap #contactus .s_website_form_field > .row {
+  display: block !important;
+  margin: 0 !important;
+}
+
+#wrapwrap #contactus .s_website_form_field .col-sm {
+  flex: none !important;
+  max-width: none !important;
+  padding: 0 !important;
+  width: 100% !important;
+}
+
+#wrapwrap #contactus .s_website_form_label {
+  color: #fff !important;
+  display: block !important;
+  font-size: 0.875rem !important;
+  font-weight: 700 !important;
+  line-height: 1.25rem !important;
+  margin: 0 0 0.5rem !important;
+  max-width: none !important;
+  padding: 0 !important;
+  width: auto !important;
+}
+
+#wrapwrap #contactus .s_website_form_mark {
+  color: #f59e0b !important;
+}
+
+#wrapwrap #contactus .s_website_form_input {
+  background: #050505 !important;
+  border: 1px solid rgba(245, 158, 11, 0.72) !important;
+  border-radius: 0.375rem !important;
+  box-shadow: none !important;
+  color: #fff !important;
+  font-size: 1rem !important;
+  line-height: 1.4 !important;
+  min-height: 2.75rem !important;
+  padding: 0.625rem 0.75rem !important;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease !important;
+  width: 100% !important;
+}
+
+#wrapwrap #contactus .s_website_form_input::placeholder {
+  color: rgba(255, 255, 255, 0.58) !important;
+  opacity: 1 !important;
+}
+
+#wrapwrap #contactus textarea.s_website_form_input {
+  min-height: 10rem !important;
+  resize: vertical !important;
+}
+
+#wrapwrap #contactus .s_website_form_input:focus {
+  background: #080808 !important;
+  border-color: #f59e0b !important;
+  box-shadow: 0 0 0 0.2rem rgba(245, 158, 11, 0.18) !important;
+  color: #fff !important;
+  outline: 0 !important;
+}
+
+#wrapwrap #contactus .s_website_form_submit {
+  align-items: center !important;
+  display: flex !important;
+  gap: 1rem !important;
+  justify-content: flex-start !important;
+  padding-top: 0.25rem !important;
+}
+
+#wrapwrap #contactus .s_website_form_submit .s_website_form_label {
+  display: none !important;
+}
+
+@media (max-width: 767.98px) {
+  #wrapwrap #contactus .tft-inner-shell {
+    max-width: 920px !important;
+  }
+
+  #wrapwrap #contactus .s_website_form {
+    margin-top: 1.75rem !important;
+    padding: 1rem !important;
+  }
+
+  #wrapwrap #contactus .s_website_form_rows {
+    grid-template-columns: 1fr !important;
+  }
+
+  #wrapwrap #contactus .s_website_form_field:nth-of-type(n+5),
+  #wrapwrap #contactus .s_website_form_submit {
+    grid-column: auto !important;
+  }
+
+  #wrapwrap #contactus .s_website_form_send {
+    width: 100% !important;
+  }
+}
+
 /* === ODOO SYSTEM UI: COOKIE BAR === */
 #website_cookies_bar{
   position: fixed !important;
