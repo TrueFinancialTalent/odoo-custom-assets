@@ -1632,7 +1632,8 @@ body.tft-nav-open {
   width: 100% !important;
 }
 
-#wrapwrap .oe_website_login_container .oe_login_form {
+#wrapwrap .oe_website_login_container .oe_login_form,
+#wrapwrap .oe_website_login_container .oe_signup_form {
   background: rgba(255, 255, 255, 0.025) !important;
   border: 1px solid rgba(245, 158, 11, 0.28) !important;
   border-radius: 0.5rem !important;
@@ -1731,7 +1732,8 @@ body.tft-nav-open {
     padding: 7rem 1rem 3rem !important;
   }
 
-  #wrapwrap .oe_website_login_container .oe_login_form {
+  #wrapwrap .oe_website_login_container .oe_login_form,
+  #wrapwrap .oe_website_login_container .oe_signup_form {
     padding: 1rem !important;
   }
 }
