@@ -1621,7 +1621,7 @@ body.tft-nav-open {
 }
 
 
-/* === ODOO SYSTEM UI: LOGIN PAGE === */
+/* === ODOO SYSTEM UI: AUTH PAGES === */
 #wrapwrap .oe_website_login_container {
   align-items: flex-start !important;
   display: flex !important;
@@ -1633,7 +1633,8 @@ body.tft-nav-open {
 }
 
 #wrapwrap .oe_website_login_container .oe_login_form,
-#wrapwrap .oe_website_login_container .oe_signup_form {
+#wrapwrap .oe_website_login_container .oe_signup_form,
+#wrapwrap .oe_website_login_container .oe_reset_password_form {
   background: rgba(255, 255, 255, 0.025) !important;
   border: 1px solid rgba(245, 158, 11, 0.28) !important;
   border-radius: 0.5rem !important;
@@ -1733,7 +1734,8 @@ body.tft-nav-open {
   }
 
   #wrapwrap .oe_website_login_container .oe_login_form,
-  #wrapwrap .oe_website_login_container .oe_signup_form {
+  #wrapwrap .oe_website_login_container .oe_signup_form,
+  #wrapwrap .oe_website_login_container .oe_reset_password_form {
     padding: 1rem !important;
   }
 }
