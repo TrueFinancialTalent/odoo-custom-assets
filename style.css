@@ -340,15 +340,17 @@ body.tft-nav-open {
 }
 
 #tft-nav .tft-btn-outline {
-  border: 1px solid #27272a;
-  color: #fff;
+  border: 1px solid #f59e0b;
+  color: #f59e0b;
   background: transparent;
 }
 
 #tft-nav .tft-btn-outline:hover {
-  background: #18181b;
-  color: #fbbf24;
-  border-color: #f59e0b;
+  background: #d97706;
+  color: #000;
+  border-color: #d97706;
+  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+  transform: translateY(-1px);
 }
 
 #tft-nav .tft-btn-amber {
@@ -1520,9 +1522,10 @@ body.tft-nav-open {
 
 .tft-footer-social-link {
   align-items: center !important;
-  border: 1px solid #27272a !important;
+  border: 1px solid #f59e0b !important;
   border-radius: 4px !important;
-  color: #a1a1aa !important;
+  background: transparent !important;
+  color: #f59e0b !important;
   cursor: pointer !important;
   display: inline-flex !important;
   font-size: 0.75rem !important;
@@ -1532,13 +1535,16 @@ body.tft-nav-open {
   line-height: 1 !important;
   padding: 0 0.625rem !important;
   text-decoration: none !important;
-  transition: border-color 0.3s ease, color 0.3s ease !important;
+  transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, color 0.2s ease, transform 0.2s ease !important;
   width: auto !important;
 }
 
 .tft-footer-social-link:hover {
-  border-color: #ffc300 !important;
-  color: #ffc300 !important;
+  background: #d97706 !important;
+  border-color: #d97706 !important;
+  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3) !important;
+  color: #000 !important;
+  transform: translateY(-1px) !important;
 }
 
 .tft-footer-social-link svg {
