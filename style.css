@@ -2467,6 +2467,180 @@ body:not(.o_edit_mode) #website_cookies_bar.o_snippet_invisible{
   letter-spacing: 0 !important;
 }
 
+/* === ODOO BLOG ARTICLE === */
+#wrap.js_blog.website_blog #o_wblog_post_top{
+  background: #000 !important;
+}
+
+#wrap.js_blog.website_blog #o_wblog_post_top .o_wblog_post_page_cover{
+  background: #050505 !important;
+  border-bottom: 1px solid rgba(245,158,11,.22) !important;
+  min-height: clamp(420px, 56vw, 640px) !important;
+}
+
+#wrap.js_blog.website_blog #o_wblog_post_top .o_record_cover_image{
+  filter: saturate(.86) contrast(1.08) !important;
+  opacity: .74 !important;
+}
+
+#wrap.js_blog.website_blog #o_wblog_post_top .o_record_cover_filter{
+  background: linear-gradient(180deg, rgba(0,0,0,.2), rgba(0,0,0,.74)) !important;
+  opacity: 1 !important;
+}
+
+#wrap.js_blog.website_blog #o_wblog_post_top .container{
+  max-width: 1060px !important;
+}
+
+#wrap.js_blog.website_blog #o_wblog_post_content_jump{
+  background: rgba(0,0,0,.38) !important;
+  border: 1px solid rgba(255,255,255,.22) !important;
+  height: 54px !important;
+  width: 54px !important;
+}
+
+#wrap.js_blog.website_blog #o_wblog_post_main{
+  background: #000 !important;
+  color: #fff !important;
+  max-width: none !important;
+  padding: 4.5rem 1.5rem 6rem !important;
+}
+
+#wrap.js_blog.website_blog #o_wblog_post_main > .o_wblog_read_with_sidebar{
+  max-width: 1180px !important;
+}
+
+#wrap.js_blog.website_blog #o_wblog_post_main .d-flex.flex-column.flex-lg-row{
+  gap: clamp(2rem, 5vw, 4rem) !important;
+}
+
+#wrap.js_blog.website_blog #o_wblog_post_content{
+  max-width: 760px !important;
+}
+
+#wrap.js_blog.website_blog #o_wblog_post_content .o_wblog_read_text{
+  color: rgba(255,255,255,.8) !important;
+  font-size: 1.08rem !important;
+  line-height: 1.82 !important;
+}
+
+#wrap.js_blog.website_blog #o_wblog_post_content .o_wblog_read_text > p{
+  margin: 0 0 1.28rem !important;
+}
+
+#wrap.js_blog.website_blog #o_wblog_post_content .o_wblog_read_text > p:first-child{
+  color: #fff !important;
+  font-size: clamp(1.18rem, 2vw, 1.36rem) !important;
+  line-height: 1.65 !important;
+  margin-bottom: 1.5rem !important;
+}
+
+#wrap.js_blog.website_blog #o_wblog_post_content .o_wblog_read_text h2{
+  border-top: 1px solid rgba(255,255,255,.1) !important;
+  color: #fff !important;
+  font-size: clamp(1.48rem, 2.4vw, 2rem) !important;
+  font-weight: 800 !important;
+  letter-spacing: 0 !important;
+  line-height: 1.18 !important;
+  margin: 2.7rem 0 1rem !important;
+  padding-top: 1.45rem !important;
+  text-wrap: balance !important;
+}
+
+#wrap.js_blog.website_blog #o_wblog_post_content .o_wblog_read_text h2:first-of-type{
+  margin-top: 2.2rem !important;
+}
+
+#wrap.js_blog.website_blog #o_wblog_post_content .o_wblog_read_text a:not(.btn){
+  color: #f59e0b !important;
+  font-weight: 700 !important;
+  text-decoration-color: rgba(245,158,11,.5) !important;
+}
+
+#wrap.js_blog.website_blog #o_wblog_post_content .o_wblog_read_text p:has(.btn){
+  background: linear-gradient(135deg, rgba(245,158,11,.12), rgba(255,255,255,.045)) !important;
+  border: 1px solid rgba(245,158,11,.32) !important;
+  border-radius: 8px !important;
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: .8rem !important;
+  margin-top: 2.5rem !important;
+  padding: 1.15rem !important;
+}
+
+#wrap.js_blog.website_blog #o_wblog_post_content .o_wblog_read_text .btn{
+  align-items: center !important;
+  border-radius: 8px !important;
+  display: inline-flex !important;
+  font-size: .95rem !important;
+  font-weight: 800 !important;
+  justify-content: center !important;
+  line-height: 1.1 !important;
+  min-height: 46px !important;
+  padding: .82rem 1rem !important;
+  text-decoration: none !important;
+}
+
+#wrap.js_blog.website_blog #o_wblog_post_content .o_wblog_read_text .btn-primary{
+  background: #f59e0b !important;
+  border-color: #f59e0b !important;
+  color: #000 !important;
+}
+
+#wrap.js_blog.website_blog #o_wblog_post_content .o_wblog_read_text .btn-secondary{
+  background: transparent !important;
+  border-color: rgba(255,255,255,.28) !important;
+  color: #fff !important;
+}
+
+#wrap.js_blog.website_blog #o_wblog_post_content .css_editable_mode_hidden.text-muted{
+  color: rgba(255,255,255,.52) !important;
+  font-size: .92rem !important;
+  margin-top: 2rem !important;
+}
+
+#wrap.js_blog.website_blog #o_wblog_post_sidebar_col{
+  flex: 0 0 300px !important;
+  max-width: 300px !important;
+}
+
+#wrap.js_blog.website_blog #o_wblog_post_sidebar{
+  position: sticky !important;
+  top: 7rem !important;
+}
+
+#wrap.js_blog.website_blog #o_wblog_post_sidebar .o_wblog_sidebar_block{
+  background: #0b0b0b !important;
+  border: 1px solid rgba(255,255,255,.1) !important;
+  border-radius: 8px !important;
+  margin-bottom: 1rem !important;
+  padding: 1.15rem !important;
+}
+
+#wrap.js_blog.website_blog #o_wblog_post_sidebar h6{
+  border-bottom-color: rgba(245,158,11,.24) !important;
+  color: rgba(255,255,255,.72) !important;
+  font-size: .78rem !important;
+  letter-spacing: 0 !important;
+}
+
+#wrap.js_blog.website_blog #o_wblog_post_sidebar a{
+  color: #fff !important;
+  text-decoration: none !important;
+}
+
+#wrap.js_blog.website_blog #o_wblog_post_sidebar a:hover{
+  color: #f59e0b !important;
+}
+
+#wrap.js_blog.website_blog #o_wblog_post_sidebar .o_wblog_social_links a{
+  background: rgba(255,255,255,.06) !important;
+  border-color: rgba(255,255,255,.14) !important;
+  color: #fff !important;
+  height: 38px !important;
+  width: 38px !important;
+}
+
 @media (max-width: 767.98px){
   #wrap.js_blog.website_blog #o_wblog_blog_top .o_record_cover_container{
     min-height: 420px !important;
@@ -2491,5 +2665,35 @@ body:not(.o_edit_mode) #website_cookies_bar.o_snippet_invisible{
 
   #wrap.js_blog.website_blog article.o_wblog_post{
     min-height: 0 !important;
+  }
+
+  #wrap.js_blog.website_blog #o_wblog_post_top .o_wblog_post_page_cover{
+    min-height: 500px !important;
+  }
+
+  #wrap.js_blog.website_blog #o_wblog_post_main{
+    padding: 2.6rem 1rem 4rem !important;
+  }
+
+  #wrap.js_blog.website_blog #o_wblog_post_content .o_wblog_read_text{
+    font-size: 1rem !important;
+    line-height: 1.75 !important;
+  }
+
+  #wrap.js_blog.website_blog #o_wblog_post_content .o_wblog_read_text p:has(.btn){
+    display: grid !important;
+    padding: 1rem !important;
+  }
+
+  #wrap.js_blog.website_blog #o_wblog_post_content .o_wblog_read_text .btn{
+    width: 100% !important;
+  }
+
+  #wrap.js_blog.website_blog #o_wblog_post_sidebar_col{
+    max-width: none !important;
+  }
+
+  #wrap.js_blog.website_blog #o_wblog_post_sidebar{
+    position: static !important;
   }
 }
