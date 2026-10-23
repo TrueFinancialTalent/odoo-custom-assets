@@ -103,7 +103,12 @@ main:not(.o_edit_mode) {
 }
 
 #tft-nav .tft-logo {
-  height: 64px;
+  display: block;
+  flex: 0 1 auto;
+  height: 80px;
+  max-width: calc(100vw - 8.5rem);
+  object-fit: contain;
+  object-position: left center;
   width: auto;
 }
 
@@ -131,7 +136,7 @@ body.tft-nav-open {
 #tft-nav .tft-row {
   align-items: center;
   display: flex;
-  height: 80px;
+  height: 96px;
   justify-content: space-between;
   margin: 0 auto;
   max-width: 1200px;
@@ -152,6 +157,7 @@ body.tft-nav-open {
   align-items: center;
   display: flex;
   gap: 0.75rem;
+  min-width: 0;
 }
 
 #tft-nav .tft-brand span {
@@ -367,6 +373,15 @@ body.tft-nav-open {
 }
 
 @media (min-width: 768px) {
+  #tft-nav .tft-logo {
+    height: 96px;
+    max-width: min(288px, 30vw);
+  }
+
+  #tft-nav .tft-row {
+    height: 112px;
+  }
+
   #tft-nav .tft-hamburger {
     display: none !important;
   }
@@ -374,11 +389,13 @@ body.tft-nav-open {
   #tft-nav .tft-desktop-links {
     align-items: center !important;
     display: flex !important;
+    flex-shrink: 0;
     gap: 2.5rem !important;
   }
 
   #tft-nav .tft-cta {
     display: flex !important;
+    flex-shrink: 0;
     gap: 1rem;
   }
 }
